@@ -13,6 +13,8 @@ public class User {
 	private String userName;
 	private String password;
 	private String email;
+	private boolean admin;
+	private boolean banned;
 
 	public User() {
 	}
@@ -49,9 +51,26 @@ public class User {
 		this.email = email;
 	}
 
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public boolean isBanned() {
+		return banned;
+	}
+
+	public void setBanned(boolean banned) {
+		this.banned = banned;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", userName=" + userName + ", password="
-				+ password + ", email=" + email + "]";
+				+ password + ", email=" + email +
+				", admin=" + admin + ", banned=" + banned + "]";
 	}
 }

@@ -13,26 +13,26 @@
 	  		<form class="form-horizontal" action="j_spring_security_check" method="post">
 			  <legend>Sign In</legend>
 			  <div class="control-group">
-			    <label class="control-label" for="j_username">Username</label>
+			    <label class="control-label" for="j_username">Usuário</label>
 			    <div class="controls">
 			      <input type="text" id="j_username" name="j_username" placeholder="User Name">
 			    </div>
 			  </div>
 			  <div class="control-group">
-			    <label class="control-label" for="j_password">Password</label>
+			    <label class="control-label" for="j_password">Senha</label>
 			    <div class="controls">
 			      <input type="password" id="j_password" name="j_password" placeholder="Password">
 			    </div>
 			  </div>
 			  <div class="control-group">
 			    <div class="controls">
-			      <button type="submit" class="btn btn-primary">Sign in</button>
+			      <button type="submit" class="btn btn-primary">Login</button>
 			      <button type="submit" class="btn btn-danger">Reset</button>
 			    </div>
 			  </div>
 			  <div class="control-group">
 			    <div class="controls">
-			      Not a User? <a href="<c:url value="/users/add"/>">Register Here</a>
+			      Não é usuário? <a href="<c:url value="/users/add"/>">Registre-se</a>
 			    </div>
 			  </div>
 			</form>

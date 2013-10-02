@@ -13,6 +13,7 @@ import com.difusores.walcupom.web.data.CampanhaUI;
 public class CampanhaMapper {
 	EnderecoMapper enderecoMapper = new EnderecoMapper();
 	UserMapper userMapper = new UserMapper();
+	CategoriaMapper categoriaMapper = new CategoriaMapper();
 	
 	public CampanhaUI toUIBean(Campanha campanha){
 		CampanhaUI campanhaUI = null;
@@ -32,6 +33,7 @@ public class CampanhaMapper {
 			campanhaUI.setDataInicio(campanha.getDataInicio());
 			campanhaUI.setDataEncerramento(campanha.getDataEncerramento());
 			campanhaUI.setDescricao(campanha.getDescricao());
+			campanhaUI.setCategoria(categoriaMapper.toUIBean(campanha.getCategoria()));
 		}
 		
 		return campanhaUI;
@@ -71,6 +73,7 @@ public class CampanhaMapper {
 			campanha.setDataInicio(campanhaUI.getDataInicio());
 			campanha.setDataEncerramento(campanhaUI.getDataEncerramento());
 			campanha.setDescricao(campanhaUI.getDescricao());
+			campanha.setCategoria(categoriaMapper.toPersistenceBean(campanhaUI.getCategoria()));
 		}
 		
 		return campanha;

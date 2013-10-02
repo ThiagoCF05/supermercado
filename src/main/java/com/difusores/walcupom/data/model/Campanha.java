@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -20,16 +21,20 @@ public class Campanha {
 	private double distancia;
 	private int quantidadeCupons;
 	
+	
 	private Date dataInicio;
 	private Date dataEncerramento;
 	
-	private Date limiteAceite;
-	private Date limiteUso;
+	private String limiteAceite;
+	private String limiteUso;
 	
 	private Date dataCriacao;
 	
 	private String descricao;
+	@DBRef
+	private Categoria categoria;
 	
+	@Indexed
 	@DBRef
 	private User user;
 	
@@ -43,7 +48,8 @@ public class Campanha {
 				 ", dataEncerramento=" + dataEncerramento + 
 				 ", limiteAceite=" + limiteAceite +
 				 ", limiteUso=" + limiteUso + ", user=" + user +
-				 ", descricao=" + descricao +"]";
+				 ", descricao=" + descricao +
+				 ", categoria=" + categoria +"]";
 	}
 
 	public String getId() {
@@ -86,19 +92,19 @@ public class Campanha {
 		this.quantidadeCupons = quantidadeCupons;
 	}
 
-	public Date getLimiteAceite() {
+	public String getLimiteAceite() {
 		return limiteAceite;
 	}
 
-	public void setLimiteAceite(Date limiteAceite) {
+	public void setLimiteAceite(String limiteAceite) {
 		this.limiteAceite = limiteAceite;
 	}
 
-	public Date getLimiteUso() {
+	public String getLimiteUso() {
 		return limiteUso;
 	}
 
-	public void setLimiteUso(Date limiteUso) {
+	public void setLimiteUso(String limiteUso) {
 		this.limiteUso = limiteUso;
 	}
 
@@ -148,5 +154,13 @@ public class Campanha {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 }

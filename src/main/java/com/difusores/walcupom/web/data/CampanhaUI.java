@@ -18,8 +18,10 @@ public class CampanhaUI {
 	private Date dataInicio;
 	private Date dataEncerramento;
 	
-	private Date limiteAceite;
-	private Date limiteUso;
+	private String limiteAceite;
+	private String limiteUso;
+	
+	private CategoriaUI categoria;
 	
 	private UserUI user;
 	
@@ -34,7 +36,8 @@ public class CampanhaUI {
 				 ", dataEncerramento=" + dataEncerramento + 
 				 ", limiteAceite=" + limiteAceite +
 				 ", limiteUso=" + limiteUso + ", user=" + user +
-				 ", descricao=" + descricao +"]";
+				 ", descricao=" + descricao +
+				 ", categoria=" + categoria +"]";
 	}
 
 	public String getId() {
@@ -77,19 +80,19 @@ public class CampanhaUI {
 		this.quantidadeCupons = quantidadeCupons;
 	}
 
-	public Date getLimiteAceite() {
+	public String getLimiteAceite() {
 		return limiteAceite;
 	}
 
-	public void setLimiteAceite(Date limiteAceite) {
+	public void setLimiteAceite(String limiteAceite) {
 		this.limiteAceite = limiteAceite;
 	}
 
-	public Date getLimiteUso() {
+	public String getLimiteUso() {
 		return limiteUso;
 	}
 
-	public void setLimiteUso(Date limiteUso) {
+	public void setLimiteUso(String limiteUso) {
 		this.limiteUso = limiteUso;
 	}
 
@@ -141,4 +144,11 @@ public class CampanhaUI {
 		this.descricao = descricao;
 	}
 
+	public CategoriaUI getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(CategoriaUI categoria) {
+		this.categoria = categoria;
+	}
 }

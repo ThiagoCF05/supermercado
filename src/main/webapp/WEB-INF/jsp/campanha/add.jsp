@@ -311,42 +311,18 @@
 		  return date;
 	  }
 	  
-	  function getLimiteAceite(date){
+	  function getLimiteAceite(){
 		  var e = document.getElementById("minutosLimiteAceite");
 		  var minutos = e.options[e.selectedIndex].value;
-		  var data = new Date(date);
-		  
-		  data.setMinutes(data.getMinutes() + minutos);
-		  
-		  var dia = (data.getDate().toString().length == 1) ? "0" + data.getDate().toString() : data.getDate().toString();
-		  var mes = (data.getMonth().toString().length == 1) ? "0" + (data.getMonth() + 1).toString() : (data.getMonth() + 1).toString();
-		  var ano = data.getFullYear();
-		  var hora = (data.getHours().toString().length == 1) ? "0" + data.getHours().toString() : data.getHours().toString();
-		  var minuto = (data.getMinutes().toString().length == 1) ? "0" + data.getMinutes().toString() : data.getMinutes().toString();
-		  var segundo = (data.getSeconds().toString().length == 1) ? "0" + data.getSeconds().toString() : data.getSeconds().toString();
-		  
-		  date = mes + "/" + dia + "/" + ano + " " + hora + ":" + minuto + ":" + segundo;
-		  
-		  document.getElementById("limiteAceite").setAttribute("value", date);
+		  minutos += " minutos";
+		  document.getElementById("limiteAceite").setAttribute("value", minutos);
 	  }
 	  
-	  function getLimiteUso(date){
+	  function getLimiteUso(){
 		  var e = document.getElementById("horasLimiteUso");
 		  var horas = e.options[e.selectedIndex].value;
-		  var data = new Date(date);
-		  
-		  data.setHours(data.getHours() + horas);
-		  
-		  var dia = (data.getDate().toString().length == 1) ? "0" + data.getDate().toString() : data.getDate().toString();
-		  var mes = (data.getMonth().toString().length == 1) ? "0" + (data.getMonth() + 1).toString() : (data.getMonth() + 1).toString();
-		  var ano = data.getFullYear();
-		  var hora = (data.getHours().toString().length == 1) ? "0" + data.getHours().toString() : data.getHours().toString();
-		  var minuto = (data.getMinutes().toString().length == 1) ? "0" + data.getMinutes().toString() : data.getMinutes().toString();
-		  var segundo = (data.getSeconds().toString().length == 1) ? "0" + data.getSeconds().toString() : data.getSeconds().toString();
-		  
-		  date = mes + "/" + dia + "/" + ano + " " + hora + ":" + minuto + ":" + segundo;
-		  
-		  document.getElementById("limiteUso").setAttribute("value", date);
+		  horas += " horas";
+		  document.getElementById("limiteUso").setAttribute("value", horas);
 	  }
 	  
 	</script>

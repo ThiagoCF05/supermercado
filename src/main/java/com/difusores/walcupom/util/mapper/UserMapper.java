@@ -21,9 +21,10 @@ public class UserMapper {
 			userUI.setUserName(user.getUserName());
 			userUI.setEmail(user.getEmail());
 			userUI.setPassword(user.getPassword());
+			userUI.setAdmin(user.isAdmin());
+			userUI.setBanned(user.isBanned());
 		}
 		return userUI;
-		
 	}
 	
 	public List<UserUI> toUIBean(List<User> users) {
@@ -55,6 +56,8 @@ public class UserMapper {
 			user.setUserName(userUI.getUserName());
 			user.setEmail(userUI.getEmail());
 			user.setPassword(userUI.getPassword());
+			user.setAdmin(userUI.isAdmin());
+			user.setBanned(userUI.isBanned());
 		}
 		
 		return user;

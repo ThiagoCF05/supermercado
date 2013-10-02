@@ -3,12 +3,14 @@ package com.difusores.walcupom.data.model;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Cupom {
 	@Id
 	private String id;
+	@Indexed
 	private String campanha;
 	private String device;
 	private String codigo;
