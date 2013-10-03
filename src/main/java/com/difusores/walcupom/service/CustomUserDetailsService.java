@@ -34,10 +34,15 @@ public class CustomUserDetailsService implements UserDetailsService {
 			boolean accountNonLocked = true;
 
 			if (domainUser != null) {
+				Collection<? extends GrantedAuthority> auth;
+				if(domainUser.isAdmin())
+					auth = getAuthorities(1);
+				else
+					auth = getAuthorities(2);
 				authenticatedUser = new User(domainUser.getUserName(),
 						domainUser.getPassword().toLowerCase(), enabled,
 						accountNonExpired, credentialsNonExpired,
-						accountNonLocked, getAuthorities(1));
+						accountNonLocked, auth);
 			} else {
 				authenticatedUser = new User("admin",
 						"21232f297a57a5a743894a0e4a801fc3", true, true, true,

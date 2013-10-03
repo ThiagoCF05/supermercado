@@ -50,8 +50,8 @@
 						<td>${campanha.quantidadeCupons }</td>
 						<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${campanha.dataInicio }" /></td>
 						<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${campanha.dataEncerramento }" /></td>
-						<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${campanha.limiteAceite }" /></td>
-						<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${campanha.limiteUso }" /></td>
+						<td>${campanha.limiteAceite }</td>
+						<td>${campanha.limiteUso }</td>
 						<td><fmt:formatDate pattern="dd/MM/yyyy HH:mm:ss" value="${campanha.dataCriacao }" /></td>
 					</tr>
 				</tbody>

@@ -17,10 +17,11 @@
 		<intercept-url pattern="/api/**" access="permitAll" />
 		<intercept-url pattern="/users/add" access="permitAll" />
 		<intercept-url pattern="/denied" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/categorias/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/**" access="isAuthenticated()" />
 
 		<form-login login-page="/login" authentication-failure-url="/login/failure"
-			default-target-url="/" />
+			default-target-url="/campaigns/list" />
 
 		<access-denied-handler error-page="/denied" />
 

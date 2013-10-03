@@ -27,6 +27,9 @@
 	      <li class="divider-vertical"><a href="${ listCampaign}">Campanhas</a></li>
 	      <li class="divider-vertical"><a href="${pessoaFisica }">Cadastro</a></li>
 	      <li class="divider-vertical"><a href="${endereco }">Endereços</a></li>
+	      <c:if test="${admin != null }">
+	      	<li class="divider-vertical"><a href="${endereco }">Categorias</a></li>
+	      </c:if>
 	    </ul>
  
       <!-- Everything you want hidden at 940px or less, place within here -->

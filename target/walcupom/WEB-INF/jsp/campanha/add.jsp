@@ -235,8 +235,8 @@
 		  }
 		  else{
 			  var dataInicio = getDataInicio();
-			  getLimiteAceite(dataInicio);
-			  getLimiteUso(dataInicio);
+			  getLimiteAceite();
+			  getLimiteUso();
 			  var dataEncerramento = getDataEncerramento(); 
 			  
 			  var aux = dataInicio.split(" ");
