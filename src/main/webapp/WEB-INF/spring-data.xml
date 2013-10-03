@@ -20,12 +20,31 @@
 	<mongo:repositories base-package="com.difusores.walcupom.data.repo" />
 
 	<!-- MongoDB host -->
-	<mongo:mongo host="${mongo.host.name}" port="${mongo.host.port}" />
-	<mongo:db-factory dbname="${mongo.db.name}" />
+	<!--<mongo:mongo host="${mongo.host.name}" port="${mongo.host.port}" />
+	<mongo:db-factory dbname="${mongo.db.name}" />-->
 
 	<!-- Template for performing MongoDB operations -->
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"
-		c:mongo-ref="mongo" c:databaseName="${mongo.db.name}" />
+	<!--<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"
+		c:mongo-ref="mongo" c:databaseName="${mongo.db.name}" />-->
+		
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongo" ref="mongo"/>
+        <constructor-arg name="databaseName" value="${mongo.db.name}"/>
+        <constructor-arg name="userCredentials" ref="mongoCredentials"/>
+    </bean>
+
+    <bean id="mongoCredentials" class="org.springframework.data.authentication.UserCredentials">
+        <constructor-arg name="username" value="#{mongoURI.username}" />
+        <constructor-arg name="password" value="#{new java.lang.String(mongoURI.password)}" />
+    </bean>
+
+    <bean class="com.mongodb.MongoURI" id="mongoURI">
+        <constructor-arg value="${MONGOHQ_URL}"  />
+    </bean>
+
+    <bean class="com.mongodb.Mongo" id="mongo">
+        <constructor-arg ref="mongoURI" />
+    </bean>
 
 	<!-- Service for initializing MongoDB with sample data using MongoTemplate -->
 	<!-- <bean id="initMongoService" class="org.sab.sampleqa.service.init.InitMongoService" 

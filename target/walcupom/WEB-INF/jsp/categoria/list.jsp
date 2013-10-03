@@ -45,7 +45,7 @@
 							<td>
 								<input type="hidden" value="${categoria.id }" /> 
 								<c:if test="${categoria.removido == false }">
-									<a class="remove" href="">
+									<a id="${categoria.id }" href="javascript:void(0)" onclick="removeCategoria('${categoria.id}')">
 										<i class="icon-remove"></i>
 									</a>
 								</c:if> 
@@ -86,7 +86,7 @@
 						else{
 							linha += "<td>" +
 							"<input type=\"hidden\" value=\"" +value.id +"\" />" +
-									"<a class=\"remove\" href=\"\"><i class=\"icon-remove\"></i></a>" +
+									"<a class=\""+value.id+"\" href=\"javascript:void(0)\" onclick=\"removeCategoria(\'"+value.id+"\')\"><i class=\"icon-remove\"></i></a>" +
 									"<img alt=\"Waiting\" src=\"/walcupom/resources/img/ajax-loader.gif\" width=\"20%\" height=\"20%\" style=\"display:none\">"+
 								"</td>" +
 							"</tr>";
@@ -97,13 +97,13 @@
 			});
 		});
 		
-		$(".remove").click(function(){
+		function removeCategoria(id){
 			event.preventDefault();
 			var confirmou = confirm("Tem certeza que deseja remover a categoria?");
 			if(confirmou == true){
-				var tabela = $(this).closest("td");
+				var tabela = $("#" + id).closest("td");
 				var id = tabela.children("input").attr("value");
-				$(this).fadeOut();
+				$("#" + id).fadeOut();
 				tabela.children("img").fadeIn();
 				
 				$.ajax({
@@ -123,7 +123,7 @@
 				     dataType: 'text'
 				 }); 
 			}
-		});
+		}
 	</script>
 	</body>
 </html>
