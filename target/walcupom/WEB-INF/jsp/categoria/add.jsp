@@ -28,7 +28,7 @@
 				<label class="string required control-label" for="dataCriacao"><abbr
 					title="required">*</abbr> Descrição</label>
 				<div class="controls">
-					<textarea id="descricao" rows="2" cols="20"></textarea>
+					<form:textarea path="descricao"/>
 				</div>
 			</div>
 			<div class="form-actions">
