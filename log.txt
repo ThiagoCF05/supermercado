@@ -1,0 +1,101 @@
+2013-10-03T16:06:59.346160+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+2013-10-03T16:06:59.346332+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:490)
+2013-10-03T16:06:59.345687+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.security.config.authentication.AuthenticationManagerFactoryBean.getObject(AuthenticationManagerFactoryBean.java:20)
+2013-10-03T16:06:59.346160+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+2013-10-03T16:06:59.346332+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:490)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:142)
+2013-10-03T16:06:59.346160+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+2013-10-03T16:06:59.345857+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:306)
+2013-10-03T16:06:59.346332+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.security.config.authentication.AuthenticationManagerFactoryBean.getObject(AuthenticationManagerFactoryBean.java:28)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1391)
+2013-10-03T16:06:59.346332+00:00 app[web.1]: 	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:615)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:615)
+2013-10-03T16:06:59.345857+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1049)
+2013-10-03T16:06:59.346332+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1049)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:953)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveManagedList(BeanDefinitionValueResolver.java:353)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1132)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1443)
+2013-10-03T16:06:59.351161+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:154)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:522)
+2013-10-03T16:06:59.351012+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:953)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1049)
+2013-10-03T16:06:59.346332+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:953)
+2013-10-03T16:06:59.351161+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+2013-10-03T16:06:59.346792+00:00 app[web.1]: 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:148)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:615)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
+2013-10-03T16:06:59.346649+00:00 app[web.1]: 	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:102)
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:323)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:148)
+2013-10-03T16:06:59.351012+00:00 app[web.1]: 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:490)
+2013-10-03T16:06:59.552686+00:00 app[web.1]: 2013-10-03 16:06:59.552:INFO::Started SelectChannelConnector@0.0.0.0:15043 STARTING
+2013-10-03T16:06:59.347101+00:00 app[web.1]: 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+2013-10-03T16:06:59.350666+00:00 app[web.1]: 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
+2013-10-03T16:06:59.880858+00:00 heroku[web.1]: State changed from starting to up
+2013-10-03T17:07:00+00:00 heroku[slug-compiler]: Slug compilation started
+2013-10-03T17:07:24.363765+00:00 heroku[api]: Deploy b386187 by thiago.castro.ferreira@gmail.com
+2013-10-03T17:07:24.380949+00:00 heroku[api]: Release v22 created by thiago.castro.ferreira@gmail.com
+2013-10-03T17:07:24+00:00 heroku[slug-compiler]: Slug compilation finished
+2013-10-03T17:07:25.315376+00:00 heroku[web.1]: State changed from up to starting
+2013-10-03T17:07:29.228960+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2013-10-03T17:07:30.090488+00:00 app[web.1]: 2013-10-03 17:07:30.083:INFO:/:Closing Spring root WebApplicationContext
+2013-10-03T17:07:30.113381+00:00 app[web.1]: 2013-10-03 17:07:30.111:INFO::stopped o.e.j.w.WebAppContext{/,file:/app/target/walcupom/},file:/app/target/walcupom.war
+2013-10-03T17:07:31.673288+00:00 heroku[web.1]: Starting process with command `java -Xmx384m -Xss512k -XX:+UseCompressedOops -jar target/dependency/jetty-runner.jar --port 22472 target/*.war`
+2013-10-03T17:07:32.171120+00:00 heroku[web.1]: Process exited with status 143
+2013-10-03T17:07:32.478153+00:00 app[web.1]: Picked up JAVA_TOOL_OPTIONS:  -Djava.rmi.server.useCodebaseOnly=true
+2013-10-03T17:07:33.002296+00:00 app[web.1]: 2013-10-03 17:07:33.001:INFO::Runner
+2013-10-03T17:07:33.002692+00:00 app[web.1]: 2013-10-03 17:07:33.002:WARN::No tx manager found
+2013-10-03T17:07:33.085834+00:00 app[web.1]: 2013-10-03 17:07:33.084:INFO::Deploying file:/app/target/walcupom.war @ /
+2013-10-03T17:07:33.330574+00:00 app[web.1]: [o.e.j.w.WebAppContext{/,null},file:/app/target/walcupom.war]
+2013-10-03T17:07:33.334358+00:00 app[web.1]: 2013-10-03 17:07:33.333:INFO::jetty-7.x.y-SNAPSHOT
+2013-10-03T17:07:33.735865+00:00 app[web.1]: 2013-10-03 17:07:33.734:INFO::Extract jar:file:/app/target/walcupom.war!/ to /app/target/walcupom
+2013-10-03T17:07:35.842357+00:00 app[web.1]: 2013-10-03 17:07:35.842:INFO::No Transaction manager found - if your webapp requires one, please configure one.
+2013-10-03T17:07:36.464460+00:00 app[web.1]: 2013-10-03 17:07:36.464:INFO:/:Initializing Spring root WebApplicationContext
+2013-10-03T17:07:36.465862+00:00 app[web.1]: log4j:WARN Please initialize the log4j system properly.
+2013-10-03T17:07:36.465791+00:00 app[web.1]: log4j:WARN No appenders could be found for logger (org.springframework.web.context.ContextLoader).
+2013-10-03T17:07:40.851502+00:00 app[web.1]: SLF4J: Defaulting to no-operation (NOP) logger implementation
+2013-10-03T17:07:40.851796+00:00 app[web.1]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2013-10-03T17:07:40.847274+00:00 app[web.1]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2013-10-03T17:07:44.470799+00:00 app[web.1]: 2013-10-03 17:07:44.470:INFO::started o.e.j.w.WebAppContext{/,file:/app/target/walcupom/},file:/app/target/walcupom.war
+2013-10-03T17:07:44.524710+00:00 app[web.1]: 2013-10-03 17:07:44.524:INFO::Started SelectChannelConnector@0.0.0.0:22472 STARTING
+2013-10-03T17:07:44.708015+00:00 heroku[web.1]: State changed from starting to up
+2013-10-03T17:07:49.864589+00:00 app[web.1]: 2013-10-03 17:07:49.862:INFO:/:Initializing Spring FrameworkServlet 'spring'
+2013-10-03T17:07:54.363953+00:00 heroku[router]: at=info method=GET path=/login;jsessionid=kucg5hms8e7g1rb1sjs4b28uo host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=1ms service=4519ms status=200 bytes=1988
+2013-10-03T17:07:57.322080+00:00 heroku[router]: at=info method=GET path=/login host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=1ms service=8ms status=200 bytes=1988
+2013-10-03T17:08:00.206889+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=1ms service=11ms status=302 bytes=0
+2013-10-03T17:07:49.517413+00:00 heroku[router]: at=info method=GET path=/walcupom host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=3ms service=386ms status=302 bytes=0
+2013-10-03T17:08:11.436624+00:00 app[web.1]: In add post method
+2013-10-03T17:08:12.431194+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=1ms service=7ms status=302 bytes=0
+2013-10-03T17:08:12.768945+00:00 heroku[router]: at=info method=GET path=/login host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=27ms service=57ms status=200 bytes=1988
+2013-10-03T17:07:57.015973+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=1ms service=6ms status=302 bytes=0
+2013-10-03T17:08:21.859972+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=2ms service=13ms status=404 bytes=1376
+2013-10-03T17:08:11.989811+00:00 heroku[router]: at=info method=GET path=/resources/css/bootstrapApp.css host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=1ms service=136ms status=304 bytes=0
+2013-10-03T17:08:34.181599+00:00 heroku[router]: at=info method=GET path=/walcupom/enderecos/add host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=13ms service=22ms status=404 bytes=1387
+2013-10-03T17:08:41.287483+00:00 heroku[router]: at=info method=GET path=/walcupom/campaigns/list host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=1ms service=12ms status=404 bytes=1388
+2013-10-03T17:08:21.421045+00:00 heroku[router]: at=info method=POST path=/users/j_spring_security_check host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=1ms service=12ms status=302 bytes=0
+2013-10-03T17:08:22.151758+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=2ms service=9ms status=404 bytes=1376
+2013-10-03T17:07:55.040932+00:00 heroku[router]: at=info method=GET path=/resources/css/bootstrapApp.css host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=3ms service=74ms status=200 bytes=147593
+2013-10-03T17:08:11.894641+00:00 heroku[router]: at=info method=GET path=/resources/js/bootstrap.min.js host=boiling-lowlands-2090.herokuapp.com fwd="201.0.24.37" dyno=web.1 connect=3ms service=25ms status=304 bytes=0
