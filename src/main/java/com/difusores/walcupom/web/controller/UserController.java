@@ -135,17 +135,11 @@ public class UserController {
 	public String add(@ModelAttribute("pessoaFisica") PessoaFisicaUI pessoaFisicaUI, 
 			@ModelAttribute("pessoaJuridica") PessoaJuridicaUI pessoaJuridicaUI, @PathVariable String tipoPessoa) {
 		if(tipoPessoa.equals("pf")){
-			if(pessoaJuridicaUI != null){
-				if(pessoaJuridicaUI.getCNPJ() != null && pessoaJuridicaUI.getCNPJ() != "")
-					pjService.delete(pessoaJuridicaUI);
-			}
+			pjService.delete(pessoaJuridicaUI);
 			pfService.create(pessoaFisicaUI);
 		}
 		else{
-			if(pessoaFisicaUI != null){
-				if(pessoaFisicaUI.getCPF() != null && pessoaFisicaUI.getCPF() != "")
-					pfService.delete(pessoaFisicaUI);
-			}
+			pfService.delete(pessoaFisicaUI);
 			pjService.create(pessoaJuridicaUI);
 		}
 		
