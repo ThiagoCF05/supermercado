@@ -31,7 +31,9 @@ public class FileUploadService {
 			if(!file.exists())
 				file.mkdir();
 			
-			resultado = file.getAbsoluteFile() + resultado;
+			String absolutePath = file.getAbsolutePath();
+			
+			resultado = absolutePath + "/" + resultado;
 			file = new File(resultado);
 			FileOutputStream fop = new FileOutputStream(file);
  
