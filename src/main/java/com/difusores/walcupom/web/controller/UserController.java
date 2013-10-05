@@ -133,12 +133,15 @@ public class UserController {
 	
 	@RequestMapping(value = "/addPF/{tipoPessoa:.*}", method = RequestMethod.POST)
 	public String add(@ModelAttribute("pessoaFisica") PessoaFisicaUI pessoaFisicaUI, 
-			@ModelAttribute("pessoaJuridica") PessoaJuridicaUI pessoaJuridicaUI, @PathVariable String tipoPessoa) {
+			@ModelAttribute("pessoaJuridica") PessoaJuridicaUI pessoaJuridicaUI, @PathVariable String tipoPessoa,
+			@RequestParam(required = true) String documento) {
 		if(tipoPessoa.equals("pf")){
+			pessoaJuridicaUI.setCNPJ(documento);
 			pjService.delete(pessoaJuridicaUI);
 			pfService.create(pessoaFisicaUI);
 		}
 		else{
+			pessoaFisicaUI.setCPF(documento);
 			pfService.delete(pessoaFisicaUI);
 			pjService.create(pessoaJuridicaUI);
 		}

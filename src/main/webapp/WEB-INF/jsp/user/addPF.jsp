@@ -17,7 +17,7 @@
 			
 			<br />
 			<div id="form">
-				<c:url value="/users/addPF/pf" var="addUserPF"/>
+				<c:url value="/users/addPF/pf?documento=${pessoaJuridica.CNPJ }" var="addUserPF"/>
 				<form:form commandName="pessoaFisica" method="POST" 
 			action="${addUserPF }">
 					<div class="row">
@@ -103,7 +103,7 @@
 				</form:form>
 			</div>
 			<div id="aux" style="display:none">
-				<c:url value="/users/addPF/pj" var="addUserPF"/>
+				<c:url value="/users/addPF/pj?documento=${pessoaFisica.CPF }" var="addUserPF"/>
 				<form:form commandName="pessoaJuridica" method="POST" 
 			action="${addUserPF }">
 					<div class="row">

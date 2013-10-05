@@ -12,7 +12,7 @@ public class PessoaJuridica{
 	private String id;
 	private String razaoSocial;
 	private String nomeFantasia;
-	private String CNPJ;
+	private String cNPJ;
 	private String inscricaoEstadual;
 	private boolean isento;
 	
@@ -30,7 +30,7 @@ public class PessoaJuridica{
 	@Override
 	public String toString() {
 		return "PessoaJuridica [id=" + id + ", razaoSocial=" + razaoSocial + ", nomeFantasia="
-				+ nomeFantasia + ", CNPJ=" + CNPJ + ", inscricaoEstadual=" + inscricaoEstadual + 
+				+ nomeFantasia + ", CNPJ=" + cNPJ + ", inscricaoEstadual=" + inscricaoEstadual + 
 				", isento=" + isento + ", enderecos=" + enderecos + 
 				", telefones=" + telefones + ", site=" + site + ", user=" + user + "]";
 	}
@@ -60,11 +60,11 @@ public class PessoaJuridica{
 	}
 
 	public String getCNPJ() {
-		return CNPJ;
+		return cNPJ;
 	}
 
 	public void setCNPJ(String cNPJ) {
-		CNPJ = cNPJ;
+		this.cNPJ = cNPJ;
 	}
 
 	public String getInscricaoEstadual() {

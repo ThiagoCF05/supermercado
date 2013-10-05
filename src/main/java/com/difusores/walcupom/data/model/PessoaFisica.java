@@ -14,7 +14,7 @@ public class PessoaFisica {
 	private String id;
 	private String firstName;
 	private String lastName;
-	private String CPF;
+	private String cPF;
 	private Date bornDate;
 	private String genre;
 	
@@ -30,7 +30,7 @@ public class PessoaFisica {
 	@Override
 	public String toString() {
 		return "PessoaFisica [id=" + id + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", CPF=" + CPF + ", bornDate=" + bornDate + 
+				+ lastName + ", CPF=" + cPF + ", bornDate=" + bornDate + 
 				", genre=" + genre + ", phones=" + phones + ", enderecos=" + enderecos +
 				", user=" + user +
 				", cidade=" + cidade +
@@ -62,11 +62,11 @@ public class PessoaFisica {
 	}
 
 	public String getCPF() {
-		return CPF;
+		return cPF;
 	}
 
 	public void setCPF(String cPF) {
-		CPF = cPF;
+		this.cPF = cPF;
 	}
 
 	public Date getBornDate() {
