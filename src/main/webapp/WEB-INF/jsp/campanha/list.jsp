@@ -51,7 +51,7 @@
 						<a id="${campanha.id }" href="javascript:void(0)" onclick="removeCampanha('${campanha.id}');">
 							<i class="icon-remove"></i>
 						</a>
-						<img alt="Waiting" src="/walcupom/resources/img/ajax-loader.gif" width="20%"
+						<img alt="Waiting" src="<c:url value="/resources/img/ajax-loader.gif"/>" width="20%"
 							height="20%" style="display: none"></td>
 					</tr>
 				</c:forEach>

@@ -49,7 +49,7 @@
 										<i class="icon-remove"></i>
 									</a>
 								</c:if> 
-								<img alt="Waiting" src="/walcupom/resources/img/ajax-loader.gif" width="40%" height="40%" style="display: none">
+								<img alt="Waiting" src="<c:url value="/resources/img/ajax-loader.gif"/>" width="40%" height="40%" style="display: none">
 							</td>
 						</tr>
 					</c:forEach>
@@ -70,7 +70,7 @@
 			$.ajax({
 				dataType : "json",
 				method : "GET",
-				url: "/walcupom/categorias/listJson?status=" + valor,
+				url: "~/categorias/listJson?status=" + valor,
 				success : function(data){
 					$("tbody").html("");
 			    	 $.each(data, function(key, value){
@@ -87,7 +87,7 @@
 							linha += "<td>" +
 							"<input type=\"hidden\" value=\"" +value.id +"\" />" +
 									"<a class=\""+value.id+"\" href=\"javascript:void(0)\" onclick=\"removeCategoria(\'"+value.id+"\')\"><i class=\"icon-remove\"></i></a>" +
-									"<img alt=\"Waiting\" src=\"/walcupom/resources/img/ajax-loader.gif\" width=\"20%\" height=\"20%\" style=\"display:none\">"+
+									"<img alt=\"Waiting\" src=\"~/resources/img/ajax-loader.gif\" width=\"20%\" height=\"20%\" style=\"display:none\">"+
 								"</td>" +
 							"</tr>";
 						}
@@ -107,7 +107,7 @@
 				tabela.children("img").fadeIn();
 				
 				$.ajax({
-				     url: "/walcupom/categorias/delete/" + id,
+				     url: "~/categorias/delete/" + id,
 				     type: 'GET',
 				     success: function(data){
 				    	 if(data == "OK"){

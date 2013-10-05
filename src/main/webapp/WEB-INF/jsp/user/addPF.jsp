@@ -9,15 +9,17 @@
 		<div class="container">
 			<jsp:include page="../menu/topMenu.jsp" />
 			<h1>Cadastro</h1>
+			<input type="hidden" id="tipoPessoa" value="${tipoPessoa }" />
 			<select id="pessoa">
-				<option value="fisica">Pessoa Física</option>
-				<option value="juridica">Pessoa Jurídica</option>
+				<option id="fisica" value="fisica">Pessoa Física</option>
+				<option id="juridica" value="juridica">Pessoa Jurídica</option>
 			</select>
 			
 			<br />
 			<div id="form">
+				<c:url value="/users/addPF/pf" var="addUserPF"/>
 				<form:form commandName="pessoaFisica" method="POST" 
-			action="/walcupom/users/addPF/pf">
+			action="${addUserPF }">
 					<div class="row">
 						<div class="span3">
 							<div class="control-group string required">
@@ -101,8 +103,9 @@
 				</form:form>
 			</div>
 			<div id="aux" style="display:none">
+				<c:url value="/users/addPF/pj" var="addUserPF"/>
 				<form:form commandName="pessoaJuridica" method="POST" 
-			action="/walcupom/users/addPF/pj">
+			action="${addUserPF }">
 					<div class="row">
 						<div class="span3">
 							<div class="control-group string required">
@@ -186,8 +189,28 @@
 			</div>
 	</div>
 	<jsp:include page="../menu/includeScripts.jsp" />
-	<script type="text/javascript" src="/walcupom/resources/js/mascarasValidacao.js"></script> 
+	<script type="text/javascript" src="<c:url value="/resources/js/mascarasValidacao.js"/>"></script> 
 	<script>
+		$(document).ready(function(){
+			var tipoPessoa = $("#tipoPessoa").attr("value");
+			
+			if(tipoPessoa == "fisica"){
+				$("#fisica").attr('selected', true);
+				$("#juridica").attr('selected', false);
+			}
+			else{
+				$("#fisica").attr('selected', false);
+				$("#juridica").attr('selected', true);
+				
+				var aux = $("#aux").html();
+				 var form = $("#form").html();
+				 $("#aux").html("");
+				 $("#aux").html(form);
+				 
+				 $("#form").html("");
+				 $("#form").html(aux);
+			}
+		});
 		$("#pessoa").change(function(event){
 			 var aux = $("#aux").html();
 			 var form = $("#form").html();

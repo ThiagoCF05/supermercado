@@ -7,7 +7,7 @@ function removeCampanha(id){
 		tabela.children("img").fadeIn();
 		
 		$.ajax({
-		     url: "/walcupom/campaigns/delete/" + id,
+		     url: "/campaigns/delete/" + id,
 		     type: 'GET',
 		     context: document.getElementById("msg"),
 		     success: function(data){
@@ -35,7 +35,7 @@ $(document).ready(function(){
 		var linha = "";
 		
 		$.ajax({
-		     url: "/walcupom/campaigns/listJson?type=" + valor,
+		     url: "/campaigns/listJson?type=" + valor,
 		     type: 'GET',
 		     success: function(data){
 		    	 $("tbody").html("");
@@ -49,7 +49,7 @@ $(document).ready(function(){
 								"<input type=\"hidden\" value=\"" +value.id +"\" />" +
 								"<a href=\"/walcupom/campaigns/view/"+value.id+"\"><i class=\"icon-zoom-in\"></i></a>" +
 								"<a id=\""+value.id+"\" href=\"javascript:void(0)\" onclick=\"removeCampanha(\'"+value.id+"\')\"><i class=\"icon-remove\"></i></a>" +
-								"<img alt=\"Waiting\" src=\"/walcupom/resources/img/ajax-loader.gif\" width=\"20%\" height=\"20%\" style=\"display:none\">"+
+								"<img alt=\"Waiting\" src=\"~/resources/img/ajax-loader.gif\" width=\"20%\" height=\"20%\" style=\"display:none\">"+
 							"</td>" +
 						"</tr>";
 						$("tbody").append(linha);

@@ -9,8 +9,9 @@
 	<div class="container">
 		<jsp:include page="../menu/topMenu.jsp" />
 		<h1>Adicionar Categoria</h1>
+		<c:url value="/categorias/add" var="addCategoria"/>
 		<form:form commandName="categoria" method="POST"
-			action="/walcupom/categorias/add">
+			action="${addCategoria }">
 			<div class="row">
 				<div class="span3">
 					<div class="control-group string required">

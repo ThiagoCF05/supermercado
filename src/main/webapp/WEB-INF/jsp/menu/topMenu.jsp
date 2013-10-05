@@ -13,10 +13,22 @@
 <c:url value="/users/addPF" var="pessoaFisica" />
 <c:url value="/enderecos/add" var="endereco" />
 
-<div id="alertMessage" class="alert" style="display:none">
-  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
-  <strong>Warning!</strong> <span id="msg"></span>
-</div>
+<c:choose>
+	<c:when test="${msg != null }">
+		<div id="alertMessage" class="alert" style="display:none">
+		  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
+		  <strong>Warning!</strong> <span id="msg">${msg }</span>
+		</div>	
+	</c:when>
+	<c:otherwise>
+		<div id="alertMessage" class="alert" style="display:none">
+		  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
+		  <strong>Warning!</strong> <span id="msg">${msg }</span>
+		</div>
+	</c:otherwise>
+</c:choose>
+
+
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">

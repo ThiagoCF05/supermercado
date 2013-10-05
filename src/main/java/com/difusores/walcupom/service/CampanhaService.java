@@ -24,6 +24,8 @@ public class CampanhaService {
 	@Autowired
 	CampanhaRepository repo;
 	@Autowired
+	FileUploadService fileService;
+	@Autowired
 	MongoTemplate template;
 	CampanhaMapper mapper = new CampanhaMapper();
 	UserMapper userMapper = new UserMapper();
@@ -105,7 +107,11 @@ public class CampanhaService {
 		Campanha campanha = repo.findOne(id);
 		
 		if(campanha != null){
+			for(String image : campanha.getImagens())
+				fileService.delete(image);
+			
 			repo.delete(campanha);
+			
 			return true;
 		} else
 			return false;

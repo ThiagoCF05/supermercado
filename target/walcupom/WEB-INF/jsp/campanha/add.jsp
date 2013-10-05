@@ -8,9 +8,15 @@
 <body>
 	<div class="container">
 		<jsp:include page="../menu/topMenu.jsp" />
+		
+		<!--  Links -->
+		<c:url value="/files/upload" var="upload" />
+		<c:url value="/campaigns/add" var="addCampaigns" />
+		<!-- ******* -->
+		
 		<h1>Upload</h1>
 		<form:form commandName="form" method="POST"
-			action="/walcupom/files/upload" enctype="multipart/form-data">
+			action="${upload }" enctype="multipart/form-data">
 			<div class="row">
 				<div class="span6">
 					<div class="control-group string required">
@@ -37,7 +43,7 @@
 		</div>
 		<h1>Adicionar Campanha</h1>
 		<form:form commandName="campanha" method="POST"
-			action="/walcupom/campaigns/add">
+			action="${addCampaigns }">
 			<div class="row">
 				<div class="span3">
 					<div class="control-group string required">

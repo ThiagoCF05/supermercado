@@ -79,7 +79,7 @@
 			
 			if(cupom != null && cupom != ""){
 				$.ajax({
-					url: "/walcupom/campaigns/validarCupom/" + cupom + "&" + campanha,
+					url: "~/campaigns/validarCupom/" + cupom + "&" + campanha,
 				    type: 'GET',
 				    context: document.getElementById("msg"),
 				    success: function(data){

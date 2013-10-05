@@ -39,5 +39,16 @@ public class FileUploadService {
 		
 		return resultado;
 	}
+	
+	public boolean delete(String image){
+		try{
+			File file = new File("/Users/thiagocastroferreira/Documents/workspace/walcupom/src/main/images/" + image);
+			
+			return file.delete();
+		} catch(Exception ex){
+			ex.printStackTrace();
+			return false;
+		}
+	}
 
 }

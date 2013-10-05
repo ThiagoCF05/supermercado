@@ -31,17 +31,18 @@
 							<td>${endereco.estado }</td>
 							<td>
 								<input type="hidden" value="${endereco.id }" /> 
-								<a class="remove" href="">
+								<a id="${endereco.id }" href="javascript:void(0)" onclick="removeEndereco('${endereco.id}');">
 									<i class="icon-remove"></i>
-								</a> 
-								<img alt="Waiting" src="/walcupom/resources/img/ajax-loader.gif" width="20%" height="20%" style="display: none">
+								</a>
+								<img alt="Waiting" src="<c:url value="/resources/img/ajax-loader.gif"/>" width="20%" height="20%" style="display: none">
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
+			<c:url value="/enderecos/add" var="addEndereco" />
 			<form:form commandName="endereco" method="POST" 
-			action="/walcupom/enderecos/add">
+			action="${addEndereco }">
 				<div class="row">
 					<div class="span4">
 						<div class="control-group string required">
@@ -115,7 +116,7 @@
 			</form:form>
 	</div>
 	<jsp:include page="../menu/includeScripts.jsp" />
-	<script type="text/javascript" src="/walcupom/resources/js/mascarasValidacao.js"></script> 
+	<script type="text/javascript" src="<c:url value="/resources/js/mascarasValidacao.js"/>"></script> 
 	<script>
 		$(document).ready(function(){
 			$("#cep").blur(function(){
@@ -161,25 +162,28 @@
 			$("#alertMessage").slideToggle();
 		});
 		
-		$(".remove").click(function(event){
-			event.preventDefault();
-			var tabela = $(this).closest("td");
-			var id = tabela.children("input").attr("value");
-			$(this).fadeOut();
-			tabela.children("img").fadeIn();
-			
-			$.ajax({
-			     url: "/walcupom/enderecos/delete/" + id,
-			     type: 'GET',
-			     context: document.getElementById("msg"),
-			     success: function(data){
-			    	 $("#msg").html(data);
-			         $("#alertMessage").slideDown();
-			         tabela.closest("tr").fadeOut();
-			     },
-			     dataType: 'text'
-			 }); 
-		});
+		function removeEndereco(id){
+			var confirma = confirm("Tem certeza que deseja remover o Endereço?");
+			if(confirma == true){
+				event.preventDefault();
+				var tabela = $("#"+id).closest("td");
+				$("#"+id).fadeOut();
+				tabela.children("img").fadeIn();
+				
+				$.ajax({
+				     url: "/enderecos/delete/" + id,
+				     type: 'GET',
+				     context: document.getElementById("msg"),
+				     success: function(data){
+				    	 $("#msg").html(data);
+				         $("#alertMessage").slideDown();
+				         tabela.closest("tr").fadeOut();
+				     },
+				     dataType: 'text'
+				 }); 
+				
+			}
+		}
 		
 		
 	</script>

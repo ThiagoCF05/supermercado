@@ -108,6 +108,8 @@ public class UserController {
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserUI userUI = service.findByUsername(user.getUsername());
 		
+		model.addAttribute("tipoPessoa", "fisica");
+		
 		PessoaFisicaUI pfUI = pfService.findByUser(userUI);
 		if(pfUI == null){
 			pfUI = new PessoaFisicaUI();
@@ -119,6 +121,8 @@ public class UserController {
 			pjUI = new PessoaJuridicaUI();
 			pjUI.setEnderecos(new ArrayList<EnderecoUI>());
 		}
+		else
+			model.addAttribute("tipoPessoa", "juridica");
 
 		model.addAttribute("user", userUI);
 		model.addAttribute("pessoaFisica", pfUI);
