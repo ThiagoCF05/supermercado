@@ -12,6 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadService {
 	public String save(MultipartFile image){
 		String resultado = null;
+		boolean diretorio = false;
+		
 		if(image.getSize() > 2000000)
 			return "Imagem excede o Tamanho Máximo permitido.";
  
@@ -24,7 +26,13 @@ public class FileUploadService {
 			token.nextToken();
 			
 			resultado += ("." + token.nextToken());
-			File file = new File("/Users/thiagocastroferreira/Documents/workspace/walcupom/src/main/images/" + resultado);
+			
+			File file = new File("images");
+			if(!file.exists())
+				file.mkdir();
+			
+			resultado = file.getAbsoluteFile() + resultado;
+			file = new File(resultado);
 			FileOutputStream fop = new FileOutputStream(file);
  
 			byte[] contentInBytes = image.getBytes();
@@ -42,7 +50,7 @@ public class FileUploadService {
 	
 	public boolean delete(String image){
 		try{
-			File file = new File("/Users/thiagocastroferreira/Documents/workspace/walcupom/src/main/images/" + image);
+			File file = new File("/images/" + image);
 			
 			return file.delete();
 		} catch(Exception ex){
