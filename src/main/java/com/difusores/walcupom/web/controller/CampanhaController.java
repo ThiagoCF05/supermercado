@@ -150,6 +150,17 @@ public class CampanhaController {
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String add(@ModelAttribute("campanha") CampanhaUI campanha, Model model){
+		if(campanha.getEnderecos() == null){
+			model.addAttribute("msg", "Para adicionar uma campanha, favor inserir um Endereço");
+			return "redirect:/campaigns/add";
+		}
+		else{
+			if(campanha.getEnderecos().size() == 0){
+				model.addAttribute("msg", "Para adicionar uma campanha, favor inserir um Endereço");
+				return "redirect:/campaigns/add";
+			}
+		}
+		
 		campanha.setDataCriacao(new Date(System.currentTimeMillis()));
 		if(service.create(campanha) != null){
 			model.addAttribute("campanha", campanha);
