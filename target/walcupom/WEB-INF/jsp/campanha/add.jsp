@@ -268,6 +268,13 @@
 				  $("#msg").html("A Data de Início deve ser maior que a Data Atual");
 			      $("#alertMessage").slideDown();
 			  }
+			  var quantidadeCupons = $("#quantidadeCupons").val();
+			  if(quantidadeCupons < 1){
+				  event.preventDefault();
+				  $("#msg").html("");
+				  $("#msg").html("Favor inserir um número válido de cupons a serem distribuídos");
+			      $("#alertMessage").slideDown();
+			  }
 		  }
 	  });
 	  

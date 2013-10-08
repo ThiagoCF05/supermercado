@@ -14,8 +14,8 @@
 <c:url value="/enderecos/add" var="endereco" />
 
 <c:choose>
-	<c:when test="${msg != null }">
-		<div id="alertMessage" class="alert" style="display:none">
+	<c:when test="${not empty msg }">
+		<div id="alertMessage" class="alert">
 		  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
 		  <strong>Warning!</strong> <span id="msg">${msg }</span>
 		</div>	
@@ -23,7 +23,7 @@
 	<c:otherwise>
 		<div id="alertMessage" class="alert" style="display:none">
 		  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
-		  <strong>Warning!</strong> <span id="msg">${msg }</span>
+		  <strong>Warning!</strong> <span id="msg"></span>
 		</div>
 	</c:otherwise>
 </c:choose>
