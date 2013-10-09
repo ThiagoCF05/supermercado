@@ -165,11 +165,11 @@
 				<label class="string required control-label" for="distancia"><abbr
 					title="required">*</abbr> Distância</label>
 				<div class="controls">
-					<select id="distancia" class="span1">
+					<form:select path="distancia">
 						<c:forEach items="${distancias }" var="distancia">
 							<option value="${distancia }">${distancia }</option>
 						</c:forEach>
-					</select> <select disabled class="span2">
+					</form:select> <select disabled class="span2">
 						<option>Kilômetros</option>
 					</select>
 				</div>

@@ -34,10 +34,16 @@ public class APIController {
 			@PathVariable String latitude,
 			@PathVariable String longitude,
 			@PathVariable String phoneNumber){
-		if(regid != null || regid != ""){
-			Device device = new Device(regid, Double.parseDouble(latitude), 
-					Double.parseDouble(longitude), phoneNumber);
-			service.save(device);
+		
+		if(regid != null){
+			if(!regid.isEmpty()){
+				Device device = new Device();
+				device.setId(regid);
+				device.setPhoneNumber(phoneNumber);
+				device.setLatitude(Double.parseDouble(latitude));
+				device.setLongitude(Double.parseDouble(longitude));
+				service.save(device);
+			}
 		}
 		
 		String ok = "OK";

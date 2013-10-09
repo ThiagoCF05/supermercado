@@ -14,11 +14,15 @@ public class Device {
 	private Date dataCriacao;
 	private Date dataAtualizacao;
 	
-	public Device(String id, double latitude, double longitude, String phoneNumber){
+	public Device(String id, double latitude, double longitude, String phoneNumber, long time){
 		this.id = id;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.phoneNumber = phoneNumber;
+	}
+	
+	public Device(){
+		
 	}
 	
 	@Override

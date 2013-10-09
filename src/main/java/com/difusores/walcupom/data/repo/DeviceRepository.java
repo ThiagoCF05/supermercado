@@ -7,5 +7,6 @@ import com.difusores.walcupom.data.model.Device;
 
 public interface DeviceRepository extends MongoRepository<Device, String>, 
 PagingAndSortingRepository<Device, String>{
+	Device findByPhoneNumber(String phoneNumber);
 
 }

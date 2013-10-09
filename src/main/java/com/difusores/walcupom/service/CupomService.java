@@ -42,6 +42,21 @@ public class CupomService {
 		return mapper.toUIBean(repo.findByCampanhaAndCodigo(campanha, codigo));
 	}
 	
+	public boolean changeDevice(String oldDeviceId, String newDeviceId){
+		List<Cupom> cupons = mapper.toPersistenceBean(this.findByDevice(oldDeviceId));
+		
+		try{
+			for(Cupom cupom : cupons){
+				cupom.setDevice(newDeviceId);
+				repo.save(cupom);
+			}
+		} catch(Exception ex){
+			return false;
+		}
+		
+		return true;
+	}
+	
 	public boolean validarCupom(String cupomId, String campanhaId){
 		Cupom cupom = repo.findOne(cupomId);
 		
