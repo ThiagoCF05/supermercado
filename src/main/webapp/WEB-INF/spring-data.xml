@@ -20,14 +20,14 @@
 	<mongo:repositories base-package="com.difusores.supermercado.data.repo" />
 
 	<!-- MongoDB host -->
-	<mongo:mongo host="${mongo.host.name}" port="${mongo.host.port}" />
-	<mongo:db-factory dbname="${mongo.db.name}" />
+	<!--  <mongo:mongo host="${mongo.host.name}" port="${mongo.host.port}" />
+	<mongo:db-factory dbname="${mongo.db.name}" />-->
 
 	<!-- Template for performing MongoDB operations -->
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"
-		c:mongo-ref="mongo" c:databaseName="${mongo.db.name}" />
+	<!-- <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"
+		c:mongo-ref="mongo" c:databaseName="${mongo.db.name}" /> -->
 		
-	<!-- <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
         <constructor-arg name="mongo" ref="mongo"/>
         <constructor-arg name="databaseName" value="${mongo.db.name}"/>
         <constructor-arg name="userCredentials" ref="mongoCredentials"/>
@@ -44,7 +44,7 @@
 
     <bean class="com.mongodb.Mongo" id="mongo">
         <constructor-arg ref="mongoURI" />
-    </bean> -->
+    </bean>
 
 	<!-- Service for initializing MongoDB with sample data using MongoTemplate -->
 	<!-- <bean id="initMongoService" class="org.sab.sampleqa.service.init.InitMongoService" 

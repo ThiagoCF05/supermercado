@@ -43,6 +43,9 @@
 							<td>${supermercado.estado }</td>
 							<td>
 								<input type="hidden" value="${supermercado.id }" /> 
+								<a href="<c:url value="/supermercados/view/${supermercado.id}" />">
+									<i class="icon-zoom-in"></i>
+								</a>
 								<a id="${supermercado.id }" href="javascript:void(0)" onclick="removeEndereco('${supermercado.id}');">
 									<i class="icon-remove"></i>
 								</a>

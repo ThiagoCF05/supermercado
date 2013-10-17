@@ -15,10 +15,11 @@
 				<div class="row">
 					<div class="span6">
 						<div class="control-group string required">
-							<label class="string required control-label" for="cep"><abbr title="required">*</abbr> Nome do Estabelecimento</label>
+							<label class="string required control-label" for="nomeEstabelecimento"><abbr title="required">*</abbr> Nome do Estabelecimento</label>
 							<div class="controls">
-								<form:input path="nomeEstabelecimento" cssClass="string required span3" onKeyPress="MascaraCep(supermercado.nomeEstabelecimento);" size="100" />
+								<form:input path="nomeEstabelecimento" value="${ supermercado.nomeEstabelecimento }" cssClass="string required span3" size="100" />
 								<form:hidden path="user" value="${ username }"  />
+								<form:hidden path="id" value="${ supermercado.id }"  />
 							</div>
 						</div>
 					</div>
@@ -28,7 +29,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="cep"><abbr title="required">*</abbr> CEP</label>
 							<div class="controls">
-								<form:input path="cep" cssClass="string required span3" onKeyPress="MascaraCep(supermercado.cep);" size="10" />
+								<form:input path="cep" value="${ supermercado.cep }" cssClass="string required span3" onKeyPress="MascaraCep(supermercado.cep);" size="9" />
 							</div>
 						</div>
 					</div>
@@ -36,7 +37,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="numero"><abbr title="required">*</abbr> Número</label>
 							<div class="controls">
-								<form:input path="numero" cssClass="string required span2" size="5" />
+								<form:input path="numero" value="${ supermercado.numero }" cssClass="string required span2" size="5" />
 							</div>
 						</div>
 					</div>
@@ -46,7 +47,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="rua"><abbr title="required">*</abbr> Rua</label>
 							<div class="controls">
-								<form:input path="rua" cssClass="string required span6" size="50" />
+								<form:input path="rua" value="${ supermercado.rua }" cssClass="string required span6" size="50" />
 							</div>
 						</div>
 					</div>
@@ -56,7 +57,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="bairro"><abbr title="required">*</abbr> Bairro</label>
 							<div class="controls">
-								<form:input path="bairro" cssClass="string required span4" size="50" />
+								<form:input path="bairro" value="${ supermercado.bairro }" cssClass="string required span4" size="50" />
 							</div>
 						</div>
 					</div>
@@ -64,7 +65,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="bloco"><abbr title="required">*</abbr> Bloco</label>
 							<div class="controls">
-								<form:input path="bloco" cssClass="string required span2" size="10" />
+								<form:input path="bloco" value="${ supermercado.bloco }" cssClass="string required span2" size="10" />
 							</div>
 						</div>
 					</div>
@@ -74,7 +75,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="cidade"><abbr title="required">*</abbr> Cidade</label>
 							<div class="controls">
-								<form:input path="cidade" cssClass="string required span3" size="50" />
+								<form:input path="cidade" value="${ supermercado.cidade }" cssClass="string required span3" size="50" />
 							</div>
 						</div>
 					</div>
@@ -82,7 +83,26 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="estado"><abbr title="required">*</abbr> Estado</label>
 							<div class="controls">
-								<form:input path="estado" cssClass="string required span1" size="2" />
+								<form:input path="estado" value="${ supermercado.estado }" cssClass="string required span1" size="2" />
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="span4">
+						<div class="control-group string required">
+							<label class="string required control-label" for="latitude"><abbr title="required">*</abbr> Latitude</label>
+							<div class="controls">
+								<form:input path="latitude" value="${ supermercado.latitude }" cssClass="string required span3" size="50" />
+							</div>
+						</div>
+					</div>
+					<div class="span2">
+						<div class="control-group string required">
+							<label class="string required control-label" for="longitude"><abbr title="required">*</abbr> Longitude</label>
+							<div class="controls">
+								<form:input path="longitude" value="${ supermercado.longitude }" cssClass="string required span1"  />
 							</div>
 						</div>
 					</div>
@@ -99,7 +119,7 @@
 	<script>
 		$(document).ready(function(){
 			$("#cep").blur(function(){
-				var validado = ValidaCep(endereco.cep)
+				var validado = ValidaCep(supermercado.cep);
 				if(validado == false){
 					$('#rua').attr("value", "");
 					$('#avenida').attr("value", "");
