@@ -7,49 +7,29 @@
 	<body>
 		<div class="container">
 			<jsp:include page="../menu/topMenu.jsp" />	
-			<h1 style="text-align:center">Endereços</h1>
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>CEP</th>
-						<th>Rua</th>
-						<th>Bairro</th>
-						<th>Número</th>
-						<th>Cidade</th>
-						<th>Estado</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${enderecos }" var="endereco">
-						<tr>
-							<td>${endereco.cep }</td>
-							<td>${endereco.rua }</td>
-							<td>${endereco.avenida }</td>
-							<td>${endereco.numero }</td>
-							<td>${endereco.cidade }</td>
-							<td>${endereco.estado }</td>
-							<td>
-								<input type="hidden" value="${endereco.id }" /> 
-								<a id="${endereco.id }" href="javascript:void(0)" onclick="removeEndereco('${endereco.id}');">
-									<i class="icon-remove"></i>
-								</a>
-								<img alt="Waiting" src="<c:url value="/resources/img/ajax-loader.gif"/>" width="20%" height="20%" style="display: none">
-							</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			<c:url value="/enderecos/add" var="addEndereco" />
-			<form:form commandName="endereco" method="POST" 
-			action="${addEndereco }">
+			<h1 style="text-align:center">Adiciona Supermercado</h1>
+			<c:url value="/supermercados/add" var="addSupermercados" />
+			<c:url value="/supermercados/list" var="listSupermercado" />
+			<form:form commandName="supermercado" method="POST" 
+			action="${addSupermercados }">
+				<div class="row">
+					<div class="span6">
+						<div class="control-group string required">
+							<label class="string required control-label" for="nomeEstabelecimento"><abbr title="required">*</abbr> Nome do Estabelecimento</label>
+							<div class="controls">
+								<form:input path="nomeEstabelecimento" value="${ supermercado.nomeEstabelecimento }" cssClass="string required span3" size="100" />
+								<form:hidden path="user" value="${ username }"  />
+								<form:hidden path="id" value="${ supermercado.id }"  />
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="row">
 					<div class="span4">
 						<div class="control-group string required">
 							<label class="string required control-label" for="cep"><abbr title="required">*</abbr> CEP</label>
 							<div class="controls">
-								<form:input path="cep" cssClass="string required span3" onKeyPress="MascaraCep(endereco.cep);" size="10" />
-								<form:hidden path="user" value="${ username }"  />
+								<form:input path="cep" value="${ supermercado.cep }" cssClass="string required span3" onKeyPress="MascaraCep(supermercado.cep);" size="9" />
 							</div>
 						</div>
 					</div>
@@ -57,7 +37,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="numero"><abbr title="required">*</abbr> Número</label>
 							<div class="controls">
-								<form:input path="numero" cssClass="string required span2" size="5" />
+								<form:input path="numero" value="${ supermercado.numero }" cssClass="string required span2" size="5" />
 							</div>
 						</div>
 					</div>
@@ -67,7 +47,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="rua"><abbr title="required">*</abbr> Rua</label>
 							<div class="controls">
-								<form:input path="rua" cssClass="string required span6" size="50" />
+								<form:input path="rua" value="${ supermercado.rua }" cssClass="string required span6" size="50" />
 							</div>
 						</div>
 					</div>
@@ -75,9 +55,9 @@
 				<div class="row">
 					<div class="span4">
 						<div class="control-group string required">
-							<label class="string required control-label" for="avenida"><abbr title="required">*</abbr> Bairro</label>
+							<label class="string required control-label" for="bairro"><abbr title="required">*</abbr> Bairro</label>
 							<div class="controls">
-								<form:input path="avenida" cssClass="string required span4" size="50" />
+								<form:input path="bairro" value="${ supermercado.bairro }" cssClass="string required span4" size="50" />
 							</div>
 						</div>
 					</div>
@@ -85,7 +65,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="bloco"><abbr title="required">*</abbr> Bloco</label>
 							<div class="controls">
-								<form:input path="bloco" cssClass="string required span2" size="10" />
+								<form:input path="bloco" value="${ supermercado.bloco }" cssClass="string required span2" size="10" />
 							</div>
 						</div>
 					</div>
@@ -95,7 +75,7 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="cidade"><abbr title="required">*</abbr> Cidade</label>
 							<div class="controls">
-								<form:input path="cidade" cssClass="string required span3" size="50" />
+								<form:input path="cidade" value="${ supermercado.cidade }" cssClass="string required span3" size="50" />
 							</div>
 						</div>
 					</div>
@@ -103,7 +83,26 @@
 						<div class="control-group string required">
 							<label class="string required control-label" for="estado"><abbr title="required">*</abbr> Estado</label>
 							<div class="controls">
-								<form:input path="estado" cssClass="string required span1" size="2" />
+								<form:input path="estado" value="${ supermercado.estado }" cssClass="string required span1" size="2" />
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="span4">
+						<div class="control-group string required">
+							<label class="string required control-label" for="latitude"><abbr title="required">*</abbr> Latitude</label>
+							<div class="controls">
+								<form:input path="latitude" value="${ supermercado.latitude }" cssClass="string required span3" size="50" />
+							</div>
+						</div>
+					</div>
+					<div class="span2">
+						<div class="control-group string required">
+							<label class="string required control-label" for="longitude"><abbr title="required">*</abbr> Longitude</label>
+							<div class="controls">
+								<form:input path="longitude" value="${ supermercado.longitude }" cssClass="string required span1"  />
 							</div>
 						</div>
 					</div>
@@ -111,7 +110,7 @@
 				
 				<div class="form-actions">
 					<input class="btn btn-primary" name="commit" type="submit" value="Criar Endereço">
-					<a class="btn btn-danger" href="<c:url value="/"/>">Cancel</a> 
+					<a class="btn btn-danger" href="${listSupermercado }">Cancel</a> 
 				</div>
 			</form:form>
 	</div>
@@ -120,7 +119,7 @@
 	<script>
 		$(document).ready(function(){
 			$("#cep").blur(function(){
-				var validado = ValidaCep(endereco.cep)
+				var validado = ValidaCep(supermercado.cep);
 				if(validado == false){
 					$('#rua').attr("value", "");
 					$('#avenida').attr("value", "");
@@ -139,8 +138,8 @@
 							if(data.resultado == 1){
 								$('#rua').attr("value", "");
 		                        $('#rua').attr("value", data.tipo_logradouro  + " " + data.logradouro);
-		                        $('#avenida').attr("value", "");
-		                        $('#avenida').attr("value", data.bairro);
+		                        $('#bairro').attr("value", "");
+		                        $('#bairro').attr("value", data.bairro);
 		                        $('#cidade').attr("value", "");
 		                        $('#cidade').attr("value", data.cidade);
 		                        $('#estado').attr("value", "");
@@ -149,7 +148,7 @@
 						},
 						error: function(xhr, textStatus, errorThrown){
 							$('#rua').attr("value", "");
-							$('#avenida').attr("value", "");
+							$('#bairro').attr("value", "");
 							$('#cidade').attr("value", "");
 							$('#estado').attr("value", "");
 			            }  
@@ -161,29 +160,6 @@
 			event.preventDefault();
 			$("#alertMessage").slideToggle();
 		});
-		
-		function removeEndereco(id){
-			var confirma = confirm("Tem certeza que deseja remover o Endereço?");
-			if(confirma == true){
-				event.preventDefault();
-				var tabela = $("#"+id).closest("td");
-				$("#"+id).fadeOut();
-				tabela.children("img").fadeIn();
-				
-				$.ajax({
-				     url: "/enderecos/delete/" + id,
-				     type: 'GET',
-				     context: document.getElementById("msg"),
-				     success: function(data){
-				    	 $("#msg").html(data);
-				         $("#alertMessage").slideDown();
-				         tabela.closest("tr").fadeOut();
-				     },
-				     dataType: 'text'
-				 }); 
-				
-			}
-		}
 		
 		
 	</script>
