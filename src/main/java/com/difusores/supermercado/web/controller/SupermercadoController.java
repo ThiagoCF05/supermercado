@@ -35,9 +35,9 @@ public class SupermercadoController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(@RequestParam(required = false) String page,
 			@RequestParam(required = false) String pageSize, Model model){
-		int pageLimit = pageSize != null ? Integer.parseInt(pageSize) : 20;
+		int pageLimit = pageSize != null ? Integer.parseInt(pageSize) : 15;
 		int currentPage = page != null ? Integer.parseInt(page) : 1;
-		String listAction = "supermercado/list";
+		String listAction = "supermercados/list";
 		
 		Pageable pageable = new PageRequest(currentPage - 1, pageLimit);
 		Page<SupermercadoUI> supermercados = service.findAll(pageable);
@@ -51,7 +51,7 @@ public class SupermercadoController {
 		logger.debug("Pageable :: total: " + supermercados.getTotalElements()
 				+ " questions: " + supermercados.getContent());
 
-		return listAction;
+		return "supermercado/list";
 	}
 	
 	@RequestMapping(value = "/view/{id:.*}", method = RequestMethod.GET)
