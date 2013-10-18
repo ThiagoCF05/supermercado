@@ -55,6 +55,17 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<ul class="pager">
+				<li><a
+					href="<c:url value="/${pageInfo.firstPage}"/>"> &laquo; &nbsp;
+						Primeira </a></li>
+				<li><a href="<c:url value="/${pageInfo.previousPage}"/>">
+						&lt; &nbsp; Anterior </a></li>
+				<li><a href="<c:url value="/${pageInfo.nextPage}"/>">
+						Próxima &nbsp; &gt; </a></li>
+				<li><a href="<c:url value="/${pageInfo.lastPage}"/>">
+						Última &nbsp; &raquo; </a></li>
+			</ul>
 	</div>
 	<jsp:include page="../menu/includeScripts.jsp" />
 	<script type="text/javascript" src="<c:url value="/resources/js/mascarasValidacao.js"/>"></script> 
