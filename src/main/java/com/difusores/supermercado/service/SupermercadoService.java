@@ -52,6 +52,10 @@ public class SupermercadoService {
 		return mapper.toUIBean(enderecos);
 	}
 	
+	public List<SupermercadoUI> findByCepAndNumero(String cep, int numero){
+		return mapper.toUIBean(repo.findByCepAndNumero(cep, numero));
+	}
+	
 	public SupermercadoUI create(SupermercadoUI supermercadoUI){
 		if(supermercadoUI != null)
 			repo.save(mapper.toPersistenceBean(supermercadoUI));

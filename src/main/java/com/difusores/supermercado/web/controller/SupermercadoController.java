@@ -1,6 +1,8 @@
 package com.difusores.supermercado.web.controller;
 
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -34,7 +36,9 @@ public class SupermercadoController {
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(@RequestParam(required = false) String page,
-			@RequestParam(required = false) String pageSize, Model model){
+			@RequestParam(required = false) String pageSize,
+			@RequestParam(required = false) String msg,
+			Model model){
 		int pageLimit = pageSize != null ? Integer.parseInt(pageSize) : 15;
 		int currentPage = page != null ? Integer.parseInt(page) : 1;
 		String listAction = "supermercados/list";
@@ -47,6 +51,11 @@ public class SupermercadoController {
 		
 		model.addAttribute("supermercados", supermercados.getContent());
 		model.addAttribute("pageInfo", pageInfo);
+		
+		if(msg != null){
+			if(msg.equals("cadastrado"))
+				model.addAttribute("msg", "O supermercado já está cadastrado.");
+		}
 
 		logger.debug("Pageable :: total: " + supermercados.getTotalElements()
 				+ " questions: " + supermercados.getContent());
@@ -80,9 +89,15 @@ public class SupermercadoController {
 				supermercado.setId(null);
 		}
 		
-		if(supermercado.getLatitude() == 0.0 && supermercado.getLongitude() == 0.0)
-			supermercado = service.insertLocation(supermercado);
-		service.create(supermercado);
+		List<SupermercadoUI> supermercados = 
+				service.findByCepAndNumero(supermercado.getCep(), supermercado.getNumero());
+		if(supermercados.size() != 0)
+			model.addAttribute("msg", "cadastrado");
+		else{
+			if(supermercado.getLatitude() == 0.0 && supermercado.getLongitude() == 0.0)
+				supermercado = service.insertLocation(supermercado);
+			service.create(supermercado);
+		}
 		
 		return "redirect:/supermercados/list";
 	}
