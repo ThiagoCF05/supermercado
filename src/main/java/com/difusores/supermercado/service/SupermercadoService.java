@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -42,6 +43,15 @@ public class SupermercadoService {
 		return mapper.toUIBean(repo.findAll(pageable), pageable);
 	}
 	
+	public Page<SupermercadoUI> findByBairro(String bairro, Pageable pageable){
+		Page<Supermercado> supermercados = repo.findByBairro(bairro, pageable);
+		return mapper.toUIBean(supermercados, pageable);
+	}
+	
+	public Page<SupermercadoUI> findByCidade(String cidade, Pageable pageable){
+		return mapper.toUIBean(repo.findByCidade(cidade, pageable), pageable);
+	}
+	
 	public SupermercadoUI find(String id){
 		return mapper.toUIBean(repo.findOne(id));
 	}
@@ -54,6 +64,24 @@ public class SupermercadoService {
 	
 	public List<SupermercadoUI> findByCepAndNumero(String cep, int numero){
 		return mapper.toUIBean(repo.findByCepAndNumero(cep, numero));
+	}
+	
+	public List<SupermercadoUI> findByBoundery(SupermercadoUI supermercado, int distanceInMeters){
+		double[] boundingBox = this.getBoundingBox(supermercado.getLatitude(), supermercado.getLongitude(), distanceInMeters);
+		
+		List<Supermercado> supermercados = new ArrayList<Supermercado>();
+		
+		try{
+			Query query = new Query(Criteria.where("latitude").lte(boundingBox[0])
+					.and("latitude").gte(boundingBox[2])
+					.and("longitute").lte(boundingBox[1])
+					.and("longitude").gte(boundingBox[3]));
+			supermercados = template.find(query, Supermercado.class);
+		} catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
+		return mapper.toUIBean(supermercados);
 	}
 	
 	public SupermercadoUI create(SupermercadoUI supermercadoUI){
@@ -71,6 +99,32 @@ public class SupermercadoService {
 		}
 		else
 			return false;
+	}
+	
+	private double[] getBoundingBox(final double pLatitude, final double pLongitude, final int pDistanceInMeters) {
+
+        final double[] boundingBox = new double[4];
+
+        final double latRadian = Math.toRadians(pLatitude);
+
+        final double degLatKm = 110.574235;
+        final double degLongKm = 110.572833 * Math.cos(latRadian);
+        final double deltaLat = pDistanceInMeters / 1000.0 / degLatKm;
+        final double deltaLong = pDistanceInMeters / 1000.0 /
+                        degLongKm;
+
+        final double minLat = pLatitude - deltaLat;
+        final double minLong = pLongitude - deltaLong;
+        final double maxLat = pLatitude + deltaLat;
+        final double maxLong = pLongitude + deltaLong;
+
+        boundingBox[0] = minLat;
+        boundingBox[1] = minLong;
+        boundingBox[2] = maxLat;
+        boundingBox[3] = maxLong;
+
+        return boundingBox;
+        
 	}
 	
 	public SupermercadoUI insertLocation(SupermercadoUI supermercadoUI){

@@ -14,6 +14,32 @@
 					<a href="${addSupermercado }">Adiciona Supermercado</a>
 				</div>
 			</div>
+			<div class="row" style="margin-top:10px">
+				<div class="span1">
+					<select id="searchType">
+						<option value="bairro">Bairro</option>
+						<option value="cidade">Cidade</option>
+					</select>
+				</div>
+				<div class="offset2 span9">
+					<c:url value="/supermercados/list" var="findByCidadeOrBairro" />
+					<form id="byCidade" method="GET" action="${findByCidadeOrBairro}" class="form-search" style="display:none">
+						<select id="cidade">
+							<option id="sp">São Paulo</option>
+							<option id="campinas">Campinas</option>
+						</select>
+						<input type="hidden" id="type" value="cidade" />
+						<button type="submit" class="btn">Buscar</button>
+					</form>
+					
+					<c:url value="/supermercados/list" var="findByCidadeOrBairro" />
+					<form id="byBairro" method="GET" action="${findByCidadeOrBairro}" class="form-search">
+					  <input id="bairro" type="text" class="input-medium search-query">
+					  <input type="hidden" id="type" value="bairro" />
+					  <button type="submit" class="btn">Buscar</button>
+					</form>
+				</div>
+			</div>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -70,7 +96,22 @@
 	<jsp:include page="../menu/includeScripts.jsp" />
 	<script type="text/javascript" src="<c:url value="/resources/js/mascarasValidacao.js"/>"></script> 
 	<script>
+		
+		$("#searchType").change(function(event){
+			event.preventDefault();
+			var e = document.getElementById("searchType");
+			var valor = e.options[e.selectedIndex].value;
 			
+			if(valor == "bairro"){
+				$("#byBairro").css("display", "block");
+				$("#byCidade").css("display", "none");
+			}
+			else{
+				$("#byBairro").css("display", "none");
+				$("#byCidade").css("display", "block");
+			}
+		});
+		
 		$("#closeMessage").click(function(event){
 			event.preventDefault();
 			$("#alertMessage").slideToggle();
