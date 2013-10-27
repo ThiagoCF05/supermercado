@@ -108,7 +108,7 @@
 			
 			var link = $("#bairro").parent().children("button").children("a");
 			
-			link.attr("href", "/walcupom/supermercados/list?type=bairro&bairro=" + escape(valor));
+			link.attr("href", "/supermercados/list?type=bairro&bairro=" + escape(valor));
 			
 			e = document.getElementById("cidade");
 			valor = e.options[e.selectedIndex].value;
