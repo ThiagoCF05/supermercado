@@ -108,14 +108,14 @@
 			
 			var link = $("#bairro").parent().children("button").children("a");
 			
-			link.attr("href", "/supermercados/list?type=bairro&bairro=" + escape(valor));
+			link.attr("href", "/supermercados/list?type=bairro&bairro=" + encodeURI(valor));
 			
 			e = document.getElementById("cidade");
 			valor = e.options[e.selectedIndex].value;
 			
 			link = $("#cidade").parent().children("button").children("a");
 			
-			link.attr("href", "/supermercados/list?type=cidade&cidade=" + escape(valor));
+			link.attr("href", "/supermercados/list?type=cidade&cidade=" + encodeURI(valor));
 		});
 		
 		$("#searchType").change(function(event){
@@ -169,7 +169,7 @@
 			
 			var link = $("#bairro").parent().children("button").children("a");
 			
-			link.attr("href", "/supermercados/list?type=bairro&bairro=" + escape(valor));
+			link.attr("href", "/supermercados/list?type=bairro&bairro=" + encodeURI(valor));
 		});
 		
 		$("#cidade").change(function(event){
@@ -178,7 +178,7 @@
 			
 			var link = $("#cidade").parent().children("button").children("a");
 			
-			link.attr("href", "/supermercados/list?type=cidade&cidade=" + escape(valor));
+			link.attr("href", "/supermercados/list?type=cidade&cidade=" + encodeURI(valor));
 		});
 		
 		
