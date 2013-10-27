@@ -59,6 +59,8 @@ public class SupermercadoController {
 		PaginationInfo pageInfo = new PaginationInfo(currentPage,
 				supermercados.getTotalElements(), pageLimit, listAction);
 		
+		model.addAttribute("bairros", service.findBairros());
+		model.addAttribute("cidades", service.findCidades());
 		model.addAttribute("supermercados", supermercados.getContent());
 		model.addAttribute("pageInfo", pageInfo);
 		
@@ -79,38 +81,6 @@ public class SupermercadoController {
 		
 		model.addAttribute("supermercado", supermercado);
 		return "supermercado/add";
-	}
-	
-	@RequestMapping(value = "/findByCidadeOrBairro", method = RequestMethod.GET)
-	public String listByCidadeOrBairro(@RequestParam(required = false) String page,
-			@RequestParam(required = false) String pageSize,
-			@RequestParam(required = false) String msg,
-			@RequestParam(required = true) String type,
-			@RequestParam(required = false) String cidade,
-			@RequestParam(required = false) String bairro,
-			Model model){
-		int pageLimit = pageSize != null ? Integer.parseInt(pageSize) : 15;
-		int currentPage = page != null ? Integer.parseInt(page) : 1;
-		String listAction = "supermercados/findByCidadeOrBairro";
-		
-		Pageable pageable = new PageRequest(currentPage - 1, pageLimit);
-		Page<SupermercadoUI> supermercados = service.findAll(pageable);
-		
-		PaginationInfo pageInfo = new PaginationInfo(currentPage,
-				supermercados.getTotalElements(), pageLimit, listAction);
-		
-		model.addAttribute("supermercados", supermercados.getContent());
-		model.addAttribute("pageInfo", pageInfo);
-		
-		if(msg != null){
-			if(msg.equals("cadastrado"))
-				model.addAttribute("msg", "O supermercado já está cadastrado.");
-		}
-
-		logger.debug("Pageable :: total: " + supermercados.getTotalElements()
-				+ " questions: " + supermercados.getContent());
-
-		return "supermercado/list";
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)

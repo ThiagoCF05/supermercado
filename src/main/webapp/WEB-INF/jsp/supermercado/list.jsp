@@ -22,21 +22,27 @@
 					</select>
 				</div>
 				<div class="offset2 span9">
-					<c:url value="/supermercados/list" var="findByCidadeOrBairro" />
-					<form id="byCidade" method="GET" action="${findByCidadeOrBairro}" class="form-search" style="display:none">
+					<input type="hidden" id="type" value="bairro" />
+					<form id="byCidade" method="GET" class="form-search" style="display:none">
 						<select id="cidade">
-							<option id="sp">São Paulo</option>
-							<option id="campinas">Campinas</option>
+							<c:forEach items="${cidades }" var="cidade">
+								<option value="${cidade }">${cidade }</option>
+							</c:forEach>
 						</select>
-						<input type="hidden" id="type" value="cidade" />
-						<button type="submit" class="btn">Buscar</button>
+						<button type="submit" class="btn">
+					  	<a class="search" href="<c:url value="/supermercados/list?type=cidade&cidade="/>"> Buscar</a>
+					  </button>
 					</form>
 					
-					<c:url value="/supermercados/list" var="findByCidadeOrBairro" />
-					<form id="byBairro" method="GET" action="${findByCidadeOrBairro}" class="form-search">
-					  <input id="bairro" type="text" class="input-medium search-query">
-					  <input type="hidden" id="type" value="bairro" />
-					  <button type="submit" class="btn">Buscar</button>
+					<form id="byBairro" method="GET" class="form-search">
+						<select id="bairro">
+							<c:forEach items="${bairros }" var="bairro">
+								<option value="${bairro }">${bairro }</option>
+							</c:forEach>
+						</select>
+					  <button type="submit" class="btn">
+					  	<a class="search" href="<c:url value="/supermercados/list?type=bairro&bairro="/>"> Buscar</a>
+					  </button>
 					</form>
 				</div>
 			</div>
@@ -96,6 +102,21 @@
 	<jsp:include page="../menu/includeScripts.jsp" />
 	<script type="text/javascript" src="<c:url value="/resources/js/mascarasValidacao.js"/>"></script> 
 	<script>
+		$(document).ready(function(){
+			var e = document.getElementById("bairro");
+			var valor = e.options[e.selectedIndex].value;
+			
+			var link = $("#bairro").parent().children("button").children("a");
+			
+			link.attr("href", "/walcupom/supermercados/list?type=bairro&bairro=" + escape(valor));
+			
+			e = document.getElementById("cidade");
+			valor = e.options[e.selectedIndex].value;
+			
+			link = $("#cidade").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=cidade&cidade=" + escape(valor));
+		});
 		
 		$("#searchType").change(function(event){
 			event.preventDefault();
@@ -105,10 +126,12 @@
 			if(valor == "bairro"){
 				$("#byBairro").css("display", "block");
 				$("#byCidade").css("display", "none");
+				$("#type").attr("value", "bairro");
 			}
 			else{
 				$("#byBairro").css("display", "none");
 				$("#byCidade").css("display", "block");
+				$("#type").attr("value", "cidade");
 			}
 		});
 		
@@ -139,6 +162,24 @@
 				
 			}
 		}
+		
+		$("#bairro").change(function(event){
+			var e = document.getElementById("bairro");
+			var valor = e.options[e.selectedIndex].value;
+			
+			var link = $("#bairro").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=bairro&bairro=" + escape(valor));
+		});
+		
+		$("#cidade").change(function(event){
+			var e = document.getElementById("cidade");
+			var valor = e.options[e.selectedIndex].value;
+			
+			var link = $("#cidade").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=cidade&cidade=" + escape(valor));
+		});
 		
 		
 	</script>

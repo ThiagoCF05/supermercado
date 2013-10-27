@@ -24,6 +24,7 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.DBCollection;
 
 @Service
 public class SupermercadoService {
@@ -82,6 +83,34 @@ public class SupermercadoService {
 		}
 		
 		return mapper.toUIBean(supermercados);
+	}
+	
+	public List<String> findBairros(){
+		List<String> bairros = new ArrayList<String>();
+		
+		try{
+			DBCollection myCol = template.getCollection("supermercado");
+			bairros = myCol.distinct("bairro");
+			java.util.Collections.sort(bairros);
+		} catch(Exception ex){
+			
+		}
+		
+		return bairros;
+	}
+	
+	public List<String> findCidades(){
+		List<String> cidades = new ArrayList<String>();
+		
+		try{
+			DBCollection myCol = template.getCollection("supermercado");
+			cidades = myCol.distinct("cidade");
+			java.util.Collections.sort(cidades);
+		} catch(Exception ex){
+			
+		}
+		
+		return cidades;
 	}
 	
 	public SupermercadoUI create(SupermercadoUI supermercadoUI){
