@@ -20,6 +20,10 @@ PagingAndSortingRepository<Supermercado, String>{
 	
 	Page<Supermercado> findByCidade(String cidade, Pageable pageable);
 	
+	List<Supermercado> findByRede(String rede);
+	
+	Page<Supermercado> findByRede(String rede, Pageable pageable);
+	
 	List<Supermercado> findByCepAndNumero(String cep, int numero);
 	
 	Page<Supermercado> findByCepAndNumero(String cep, int numero, Pageable pageable);

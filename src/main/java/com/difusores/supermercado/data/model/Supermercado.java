@@ -19,6 +19,7 @@ public class Supermercado {
 	@Indexed
 	private String cidade;
 	private String estado;
+	@Indexed
 	private String nomeEstabelecimento;
 	
 	private String user;

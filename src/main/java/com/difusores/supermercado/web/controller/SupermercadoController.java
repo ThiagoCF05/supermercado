@@ -41,8 +41,9 @@ public class SupermercadoController {
 			@RequestParam(required = false) String type,
 			@RequestParam(required = false) String cidade,
 			@RequestParam(required = false) String bairro,
+			@RequestParam(required = false) String rede,
 			Model model){
-		int pageLimit = pageSize != null ? Integer.parseInt(pageSize) : 15;
+		int pageLimit = pageSize != null ? Integer.parseInt(pageSize) : 20;
 		int currentPage = page != null ? Integer.parseInt(page) : 1;
 		String listAction = "supermercados/list";
 		
@@ -53,6 +54,8 @@ public class SupermercadoController {
 			supermercados = service.findAll(pageable);
 		else if(type.equals("bairro"))
 			supermercados = service.findByBairro(bairro, pageable);
+		else if(type.equals("rede"))
+			supermercados = service.findByBairro(rede, pageable);
 		else
 			supermercados = service.findByCidade(cidade, pageable);
 		
@@ -61,6 +64,7 @@ public class SupermercadoController {
 		
 		model.addAttribute("bairros", service.findBairros());
 		model.addAttribute("cidades", service.findCidades());
+		model.addAttribute("redes", service.findRedes());
 		model.addAttribute("supermercados", supermercados.getContent());
 		model.addAttribute("pageInfo", pageInfo);
 		

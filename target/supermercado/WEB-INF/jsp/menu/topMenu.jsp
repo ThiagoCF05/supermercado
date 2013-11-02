@@ -13,20 +13,18 @@
 <c:url value="/produtos/list" var="produto" />
 <c:url value="/supermercados/list" var="supermercado" />
 
-<c:choose>
-	<c:when test="${not empty msg }">
-		<div id="alertMessage" class="alert">
-		  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
-		  <strong>Warning!</strong> <span id="msg">${msg }</span>
-		</div>	
-	</c:when>
-	<c:otherwise>
-		<div id="alertMessage" class="alert" style="display:none">
-		  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
-		  <strong>Warning!</strong> <span id="msg"></span>
-		</div>
-	</c:otherwise>
-</c:choose>
+<c:if test="${not empty msg }">
+	<div id="alertMessage" class="alert">
+	  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
+	  <strong>Warning!</strong> <span id="msg">${msg }</span>
+	</div>	
+</c:if>
+<c:if test="${empty msg }">
+	<div id="alertMessage" class="alert" style="display:none">
+	  <button type="button" id="closeMessage" class="close" data-dismiss="alert">&times;</button>
+	  <strong>Warning!</strong> <span id="msg"></span>
+	</div>
+</c:if>
 
 
 <div class="navbar">

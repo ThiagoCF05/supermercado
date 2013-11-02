@@ -14,6 +14,50 @@
 					<a href="${addSupermercado }">Adiciona Supermercado</a>
 				</div>
 			</div>
+			<div class="row" style="margin-top:10px">
+				<div class="span1">
+					<select id="searchType">
+						<option value="bairro">Bairro</option>
+						<option value="cidade">Cidade</option>
+						<option value="rede">Rede</option>
+					</select>
+				</div>
+				<div class="offset2 span9">
+					<input type="hidden" id="type" value="bairro" />
+					<form id="byCidade" method="GET" class="form-search" style="display:none">
+						<select id="cidade">
+							<c:forEach items="${cidades }" var="cidade">
+								<option value="${cidade }">${cidade }</option>
+							</c:forEach>
+						</select>
+						<button type="submit" class="btn">
+					  	<a class="search" href="<c:url value="/supermercados/list?type=cidade&cidade="/>"> Buscar</a>
+					  </button>
+					</form>
+					
+					<form id="byBairro" method="GET" class="form-search">
+						<select id="bairro">
+							<c:forEach items="${bairros }" var="bairro">
+								<option value="${bairro }">${bairro }</option>
+							</c:forEach>
+						</select>
+					  <button type="submit" class="btn">
+					  	<a class="search" href="<c:url value="/supermercados/list?type=bairro&bairro="/>"> Buscar</a>
+					  </button>
+					</form>
+					
+					<form id="byRede" method="GET" class="form-search">
+						<select id="bairro">
+							<c:forEach items="${redes }" var="rede">
+								<option value="${rede }">${rede }</option>
+							</c:forEach>
+						</select>
+					  <button type="submit" class="btn">
+					  	<a class="search" href="<c:url value="/supermercados/list?type=rede&rede="/>"> Buscar</a>
+					  </button>
+					</form>
+				</div>
+			</div>
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -70,7 +114,47 @@
 	<jsp:include page="../menu/includeScripts.jsp" />
 	<script type="text/javascript" src="<c:url value="/resources/js/mascarasValidacao.js"/>"></script> 
 	<script>
+		$(document).ready(function(){
+			var e = document.getElementById("bairro");
+			var valor = e.options[e.selectedIndex].value;
 			
+			var link = $("#bairro").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=bairro&bairro=" + encodeURI(valor));
+			
+			e = document.getElementById("cidade");
+			valor = e.options[e.selectedIndex].value;
+			
+			link = $("#cidade").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=cidade&cidade=" + encodeURI(valor));
+		});
+		
+		$("#searchType").change(function(event){
+			event.preventDefault();
+			var e = document.getElementById("searchType");
+			var valor = e.options[e.selectedIndex].value;
+			
+			if(valor == "bairro"){
+				$("#byBairro").css("display", "block");
+				$("#byCidade").css("display", "none");
+				$("#byRede").css("display", "none");
+				$("#type").attr("value", "bairro");
+			}
+			else if(valor == "cidade"){
+				$("#byBairro").css("display", "none");
+				$("#byCidade").css("display", "block");
+				$("#byRede").css("display", "none");
+				$("#type").attr("value", "cidade");
+			}
+			else{
+				$("#byBairro").css("display", "none");
+				$("#byCidade").css("display", "none");
+				$("#byRede").css("display", "block");
+				$("#type").attr("value", "rede");
+			}
+		});
+		
 		$("#closeMessage").click(function(event){
 			event.preventDefault();
 			$("#alertMessage").slideToggle();
@@ -98,6 +182,24 @@
 				
 			}
 		}
+		
+		$("#bairro").change(function(event){
+			var e = document.getElementById("bairro");
+			var valor = e.options[e.selectedIndex].value;
+			
+			var link = $("#bairro").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=bairro&bairro=" + encodeURI(valor));
+		});
+		
+		$("#cidade").change(function(event){
+			var e = document.getElementById("cidade");
+			var valor = e.options[e.selectedIndex].value;
+			
+			var link = $("#cidade").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=cidade&cidade=" + encodeURI(valor));
+		});
 		
 		
 	</script>

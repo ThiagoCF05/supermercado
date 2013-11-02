@@ -53,6 +53,10 @@ public class SupermercadoService {
 		return mapper.toUIBean(repo.findByCidade(cidade, pageable), pageable);
 	}
 	
+	public Page<SupermercadoUI> findByRede(String rede, Pageable pageable){
+		return mapper.toUIBean(repo.findByRede(rede, pageable), pageable);
+	}
+	
 	public SupermercadoUI find(String id){
 		return mapper.toUIBean(repo.findOne(id));
 	}
@@ -97,6 +101,20 @@ public class SupermercadoService {
 		}
 		
 		return bairros;
+	}
+	
+	public List<String> findRedes(){
+		List<String> redes = new ArrayList<String>();
+		
+		try{
+			DBCollection myCol = template.getCollection("supermercado");
+			redes = myCol.distinct("nomeEstabelecimento");
+			java.util.Collections.sort(redes);
+		} catch(Exception ex){
+			
+		}
+		
+		return redes;
 	}
 	
 	public List<String> findCidades(){

@@ -19,6 +19,7 @@
 					<select id="searchType">
 						<option value="bairro">Bairro</option>
 						<option value="cidade">Cidade</option>
+						<option value="rede">Rede</option>
 					</select>
 				</div>
 				<div class="offset2 span9">
@@ -42,6 +43,17 @@
 						</select>
 					  <button type="submit" class="btn">
 					  	<a class="search" href="<c:url value="/supermercados/list?type=bairro&bairro="/>"> Buscar</a>
+					  </button>
+					</form>
+					
+					<form id="byRede" method="GET" class="form-search">
+						<select id="bairro">
+							<c:forEach items="${redes }" var="rede">
+								<option value="${rede }">${rede }</option>
+							</c:forEach>
+						</select>
+					  <button type="submit" class="btn">
+					  	<a class="search" href="<c:url value="/supermercados/list?type=rede&rede="/>"> Buscar</a>
 					  </button>
 					</form>
 				</div>
@@ -126,12 +138,20 @@
 			if(valor == "bairro"){
 				$("#byBairro").css("display", "block");
 				$("#byCidade").css("display", "none");
+				$("#byRede").css("display", "none");
 				$("#type").attr("value", "bairro");
+			}
+			else if(valor == "cidade"){
+				$("#byBairro").css("display", "none");
+				$("#byCidade").css("display", "block");
+				$("#byRede").css("display", "none");
+				$("#type").attr("value", "cidade");
 			}
 			else{
 				$("#byBairro").css("display", "none");
-				$("#byCidade").css("display", "block");
-				$("#type").attr("value", "cidade");
+				$("#byCidade").css("display", "none");
+				$("#byRede").css("display", "block");
+				$("#type").attr("value", "rede");
 			}
 		});
 		
