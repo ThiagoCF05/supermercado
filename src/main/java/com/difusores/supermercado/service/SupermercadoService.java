@@ -54,7 +54,7 @@ public class SupermercadoService {
 	}
 	
 	public Page<SupermercadoUI> findByRede(String rede, Pageable pageable){
-		return mapper.toUIBean(repo.findByRede(rede, pageable), pageable);
+		return mapper.toUIBean(repo.findByNomeEstabelecimento(rede, pageable), pageable);
 	}
 	
 	public SupermercadoUI find(String id){
