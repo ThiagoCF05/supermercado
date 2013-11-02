@@ -55,7 +55,7 @@ public class SupermercadoController {
 		else if(type.equals("bairro"))
 			supermercados = service.findByBairro(bairro, pageable);
 		else if(type.equals("rede"))
-			supermercados = service.findByBairro(rede, pageable);
+			supermercados = service.findByRede(rede, pageable);
 		else
 			supermercados = service.findByCidade(cidade, pageable);
 		
