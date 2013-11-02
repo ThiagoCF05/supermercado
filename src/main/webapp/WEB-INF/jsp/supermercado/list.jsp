@@ -46,8 +46,8 @@
 					  </button>
 					</form>
 					
-					<form id="byRede" method="GET" class="form-search">
-						<select id="bairro">
+					<form id="byRede" method="GET" class="form-search" style="display:none">
+						<select id="rede">
 							<c:forEach items="${redes }" var="rede">
 								<option value="${rede }">${rede }</option>
 							</c:forEach>
@@ -199,6 +199,15 @@
 			var link = $("#cidade").parent().children("button").children("a");
 			
 			link.attr("href", "/supermercados/list?type=cidade&cidade=" + encodeURI(valor));
+		});
+		
+		$("#rede").change(function(event){
+			var e = document.getElementById("rede");
+			var valor = e.options[e.selectedIndex].value;
+			
+			var link = $("#rede").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=rede&rede=" + encodeURI(valor));
 		});
 		
 		
