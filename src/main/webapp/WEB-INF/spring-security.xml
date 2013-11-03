@@ -14,7 +14,7 @@
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/logout" access="permitAll" />
-		<intercept-url pattern="/api/**" access="permitAll" />
+		<intercept-url pattern="/api/produtos/**" access="permitAll" />
 		<intercept-url pattern="/users/add" access="permitAll" />
 		<intercept-url pattern="/denied" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/categorias/**" access="hasRole('ROLE_ADMIN')" />

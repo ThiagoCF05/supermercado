@@ -128,6 +128,10 @@
 			link = $("#cidade").parent().children("button").children("a");
 			
 			link.attr("href", "/supermercados/list?type=cidade&cidade=" + encodeURI(valor));
+			
+			link = $("#rede").parent().children("button").children("a");
+			
+			link.attr("href", "/supermercados/list?type=rede&rede=" + encodeURI(valor));
 		});
 		
 		$("#searchType").change(function(event){
