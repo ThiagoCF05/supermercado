@@ -33,7 +33,7 @@ public class ProdutoController {
 			@RequestParam(required = false) String pageSize, Model model){
 		int pageLimit = pageSize != null ? Integer.parseInt(pageSize) : 20;
 		int currentPage = page != null ? Integer.parseInt(page) : 1;
-		String listAction = "produto/list";
+		String listAction = "produtos/list";
 		
 		Pageable pageable = new PageRequest(currentPage - 1, pageLimit);
 		Page<ProdutoUI> produtos = service.findAll(pageable);
@@ -47,7 +47,7 @@ public class ProdutoController {
 		logger.debug("Pageable :: total: " + produtos.getTotalElements()
 				+ " questions: " + produtos.getContent());
 
-		return listAction;
+		return "produtos/list";
 	}
 	
 	@RequestMapping(value = "/view/{id:.*}", method = RequestMethod.GET)
