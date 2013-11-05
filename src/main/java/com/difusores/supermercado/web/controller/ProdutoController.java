@@ -47,7 +47,7 @@ public class ProdutoController {
 		logger.debug("Pageable :: total: " + produtos.getTotalElements()
 				+ " questions: " + produtos.getContent());
 
-		return "produtos/list";
+		return "produto/list";
 	}
 	
 	@RequestMapping(value = "/view/{id:.*}", method = RequestMethod.GET)
