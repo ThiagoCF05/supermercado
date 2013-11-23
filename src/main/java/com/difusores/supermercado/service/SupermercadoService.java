@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -12,7 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.geo.GeoResult;
+import org.springframework.data.mongodb.core.geo.GeoResults;
+import org.springframework.data.mongodb.core.geo.Metrics;
+import org.springframework.data.mongodb.core.geo.Point;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.NearQuery;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
@@ -71,18 +77,19 @@ public class SupermercadoService {
 		return mapper.toUIBean(repo.findByCepAndNumero(cep, numero));
 	}
 	
-	public List<SupermercadoUI> findByBoundery(double latitude, double longitude, int distanceInMeters){
-		double[] boundingBox = this.getBoundingBox(latitude, longitude, distanceInMeters);
+	public List<SupermercadoUI> findByBoundery(double latitude, double longitude, double distanceInMeters){
+		//double[] boundingBox = this.getBoundingBox(latitude, longitude, distanceInMeters);
 		
 		List<Supermercado> supermercados = new ArrayList<Supermercado>();
 		
 		try{
-			Query query = new Query(Criteria.where("latitude").lte(boundingBox[0])
-					.and("latitude").gte(boundingBox[2])
-					.and("longitute").lte(boundingBox[1])
-					.and("longitude").gte(boundingBox[3]));
-			supermercados = template.find(query, Supermercado.class);
-			//template.g
+			Point point = new Point(latitude, longitude);
+			NearQuery query = NearQuery.near(point).maxDistance(distanceInMeters, Metrics.KILOMETERS);
+			
+			GeoResults<Supermercado> resultado = template.geoNear(query, Supermercado.class);
+			
+			for(GeoResult<Supermercado> supermercado : resultado.getContent())
+				supermercados.add(supermercado.getContent());
 		} catch(Exception ex){
 			ex.printStackTrace();
 		}

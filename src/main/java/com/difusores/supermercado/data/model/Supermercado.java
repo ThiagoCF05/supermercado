@@ -125,14 +125,7 @@ public class Supermercado {
 		this.nomeEstabelecimento = nomeEstabelecimento;
 	}
 
-	public double[] getLocation() {
-		if(location != null){
-			if(location.length == 0)
-				this.location = new double[]{this.getLatitude(), this.getLongitude()};
-		}
-		else
-			this.location = new double[]{this.getLatitude(), this.getLongitude()};
-		
+	public double[] getLocation() {		
 		return location;
 	}
 

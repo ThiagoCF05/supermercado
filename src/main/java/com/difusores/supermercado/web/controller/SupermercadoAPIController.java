@@ -27,14 +27,14 @@ public class SupermercadoAPIController {
 			Model model){
 		
 		List<SupermercadoUI> supermercados = new ArrayList<SupermercadoUI>();
-		int i = 10;
-		while(i < 100){
+		double i = 0.05;
+		while(i < 1){
 			supermercados = service.findByBoundery(latitude, longitude, i);
 			
 			if(supermercados.size() > 0)
 				break;
 			
-			i = i + 10;
+			i = i * 2;
 		}
 		
 		return supermercados;
