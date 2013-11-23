@@ -71,8 +71,8 @@ public class SupermercadoService {
 		return mapper.toUIBean(repo.findByCepAndNumero(cep, numero));
 	}
 	
-	public List<SupermercadoUI> findByBoundery(SupermercadoUI supermercado, int distanceInMeters){
-		double[] boundingBox = this.getBoundingBox(supermercado.getLatitude(), supermercado.getLongitude(), distanceInMeters);
+	public List<SupermercadoUI> findByBoundery(double latitude, double longitude, int distanceInMeters){
+		double[] boundingBox = this.getBoundingBox(latitude, longitude, distanceInMeters);
 		
 		List<Supermercado> supermercados = new ArrayList<Supermercado>();
 		
