@@ -1,6 +1,7 @@
 package com.difusores.supermercado.data.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,6 +15,10 @@ public class Supermercado {
 	private String bairro;
 	private int numero;
 	private String bloco;
+	
+	@GeoSpatialIndexed
+	private double[] location;
+	
 	private double latitude;
 	private double longitude;
 	@Indexed
@@ -30,6 +35,7 @@ public class Supermercado {
 				+ rua + ", bairro=" + bairro + ", numero=" + numero +
 				 ", bloco=" + bloco + ", latitude=" + latitude +
 				 ", longitude=" + longitude + ", user=" + user + 
+				 ", location=" + location +
 				 ", cidade=" + cidade + ", estado=" + estado + 
 				 ", nomeEstabelecimento=" + nomeEstabelecimento +"]";
 	}
@@ -119,4 +125,18 @@ public class Supermercado {
 		this.nomeEstabelecimento = nomeEstabelecimento;
 	}
 
+	public double[] getLocation() {
+		if(location != null){
+			if(location.length == 0)
+				this.location = new double[]{this.getLatitude(), this.getLongitude()};
+		}
+		else
+			this.location = new double[]{this.getLatitude(), this.getLongitude()};
+		
+		return location;
+	}
+
+	public void setLocation(double[] location) {
+		this.location = location;
+	}
 }

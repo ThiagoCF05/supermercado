@@ -9,6 +9,7 @@ public class SupermercadoUI {
 	private String bloco;
 	private double latitude;
 	private double longitude;
+	private double[] location;
 	private String estado;
 	private String cidade;
 	private String nomeEstabelecimento;
@@ -21,6 +22,7 @@ public class SupermercadoUI {
 				+ rua + ", bairro=" + bairro + ", numero=" + numero +
 				 ", bloco=" + bloco + ", user=" + user + 
 				 ", latitude=" + latitude + ", longitude=" + longitude +
+				 ", location=" + location +
 				 ", cidade=" + cidade + ", estado=" + estado +
 				 ", nomeEstabelecimento=" + nomeEstabelecimento +"]";
 	}
@@ -119,5 +121,13 @@ public class SupermercadoUI {
 
 	public void setNomeEstabelecimento(String nomeEstabelecimento) {
 		this.nomeEstabelecimento = nomeEstabelecimento;
+	}
+
+	public double[] getLocation() {
+		return location;
+	}
+
+	public void setLocation(double[] location) {
+		this.location = location;
 	}
 }

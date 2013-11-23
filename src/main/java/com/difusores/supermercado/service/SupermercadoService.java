@@ -82,6 +82,7 @@ public class SupermercadoService {
 					.and("longitute").lte(boundingBox[1])
 					.and("longitude").gte(boundingBox[3]));
 			supermercados = template.find(query, Supermercado.class);
+			//template.g
 		} catch(Exception ex){
 			ex.printStackTrace();
 		}
@@ -212,6 +213,7 @@ public class SupermercadoService {
 				
 				supermercadoUI.setLatitude(latitude);
 				supermercadoUI.setLongitude(longitude);
+				supermercadoUI.setLocation(new double[]{latitude, longitude});
 			}
 			
 		} catch(Exception ex){

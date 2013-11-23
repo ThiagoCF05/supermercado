@@ -30,6 +30,7 @@ public class SupermercadoMapper {
 			supermercadoUI.setEstado(supermercado.getEstado());
 			supermercadoUI.setLatitude(supermercado.getLatitude());
 			supermercadoUI.setLongitude(supermercado.getLongitude());
+			supermercadoUI.setLocation(supermercado.getLocation());
 			supermercadoUI.setNomeEstabelecimento(supermercado.getNomeEstabelecimento());
 		}
 		
@@ -78,6 +79,7 @@ public class SupermercadoMapper {
 			supermercado.setUser(supermercadoUI.getUser());
 			supermercado.setLatitude(supermercadoUI.getLatitude());
 			supermercado.setLongitude(supermercadoUI.getLongitude());
+			supermercado.setLocation(supermercadoUI.getLocation());
 			supermercado.setCidade(supermercadoUI.getCidade());
 			supermercado.setEstado(supermercadoUI.getEstado());
 			supermercado.setNomeEstabelecimento(supermercadoUI.getNomeEstabelecimento());
