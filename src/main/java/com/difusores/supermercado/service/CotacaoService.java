@@ -46,9 +46,10 @@ public class CotacaoService {
 	
 	
 	public CotacaoUI create(CotacaoUI cotacaoUI){
+		Cotacao cotacao = null;
 		if(cotacaoUI != null)
-			repo.save(mapper.toPersistenceBean(cotacaoUI));
-		return cotacaoUI;	
+			cotacao = repo.save(mapper.toPersistenceBean(cotacaoUI));
+		return mapper.toUIBean(cotacao);	
 	}
 	
 	public CotacaoUI create(String supermercadoId, String produtoId, String userId, double preco){
