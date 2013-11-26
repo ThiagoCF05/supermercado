@@ -14,13 +14,23 @@ import com.difusores.supermercado.data.repo.CotacaoRepository;
 import com.difusores.supermercado.util.mapper.CotacaoMapper;
 import com.difusores.supermercado.web.data.CotacaoUI;
 
+
 @Service
 public class CotacaoService {
 	@Autowired
 	CotacaoRepository repo;
 	@Autowired
 	MongoTemplate template;
+	
+	@Autowired
+	SupermercadoService supermercadoService;
+	@Autowired
+	UserService userService;
+	@Autowired
+	ProdutoService produtoService;
+	
 	CotacaoMapper mapper = new CotacaoMapper();
+	
 	
 	public List<CotacaoUI> findAll(){
 		return mapper.toUIBean(repo.findAll());
@@ -66,16 +76,16 @@ public class CotacaoService {
 		if(preco <= 0.0)
 			return null;
 		
-		Cotacao cotacao = new Cotacao();
+		CotacaoUI cotacao = new CotacaoUI();
 		cotacao.setData(new Date(System.currentTimeMillis()));
 		cotacao.setPreco(preco);
-		cotacao.setProduto(produtoId);
-		cotacao.setSupermercado(supermercadoId);
-		cotacao.setUser(userId);
+		cotacao.setProduto(produtoService.find(produtoId));
+		cotacao.setSupermercado(supermercadoService.find(supermercadoId));
+		cotacao.setUser(userService.find(userId));
 		
-		repo.save(cotacao);
+		cotacao = this.create(cotacao);
 		
-		return mapper.toUIBean(cotacao);
+		return cotacao;
 	}
 	
 	public boolean delete(String cotacaoId){

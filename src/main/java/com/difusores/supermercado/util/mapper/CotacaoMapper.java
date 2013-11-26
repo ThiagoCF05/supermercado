@@ -3,15 +3,11 @@ package com.difusores.supermercado.util.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
 import com.difusores.supermercado.data.model.Cotacao;
-import com.difusores.supermercado.service.ProdutoService;
-import com.difusores.supermercado.service.SupermercadoService;
-import com.difusores.supermercado.service.UserService;
 import com.difusores.supermercado.web.data.CotacaoUI;
 
 public class CotacaoMapper {
