@@ -1,5 +1,6 @@
 package com.difusores.supermercado.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,43 @@ public class CotacaoService {
 		if(cotacaoUI != null)
 			repo.save(mapper.toPersistenceBean(cotacaoUI));
 		return cotacaoUI;	
+	}
+	
+	public CotacaoUI create(String supermercadoId, String produtoId, String userId, double preco){
+		if(supermercadoId == null)
+			return null;
+		else{
+			if(supermercadoId.isEmpty())
+				return null;
+		}
+		
+		if(produtoId == null)
+			return null;
+		else{
+			if(produtoId.isEmpty())
+				return null;
+		}
+		
+		if(userId == null)
+			return null;
+		else{
+			if(userId.isEmpty())
+				return null;
+		}
+		
+		if(preco <= 0.0)
+			return null;
+		
+		Cotacao cotacao = new Cotacao();
+		cotacao.setData(new Date(System.currentTimeMillis()));
+		cotacao.setPreco(preco);
+		cotacao.setProduto(produtoId);
+		cotacao.setSupermercado(supermercadoId);
+		cotacao.setUser(userId);
+		
+		repo.save(cotacao);
+		
+		return mapper.toUIBean(cotacao);
 	}
 	
 	public boolean delete(String cotacaoId){
