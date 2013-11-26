@@ -15,12 +15,9 @@ import com.difusores.supermercado.service.UserService;
 import com.difusores.supermercado.web.data.CotacaoUI;
 
 public class CotacaoMapper {
-	@Autowired
-	SupermercadoService supermercadoS;
-	@Autowired
-	ProdutoService produtoS;
-	@Autowired
-	UserService userS;
+	SupermercadoMapper supermercadoMapper = new SupermercadoMapper();
+	ProdutoMapper produtoMapper = new ProdutoMapper();
+	UserMapper userMapper = new UserMapper();
 	
 	public CotacaoUI toUIBean(Cotacao cotacao){
 		CotacaoUI cotacaoUI = null;
@@ -30,9 +27,9 @@ public class CotacaoMapper {
 			cotacaoUI.setData(cotacao.getData());
 			cotacaoUI.setId(cotacao.getId());
 			cotacaoUI.setPreco(cotacao.getPreco());
-			cotacaoUI.setProduto(produtoS.find(cotacao.getProduto()));
-			cotacaoUI.setSupermercado(supermercadoS.find(cotacao.getSupermercado()));
-			cotacaoUI.setUser(userS.find(cotacao.getUser()));
+			cotacaoUI.setProduto(produtoMapper.toUIBean(cotacao.getProduto()));
+			cotacaoUI.setSupermercado(supermercadoMapper.toUIBean(cotacao.getSupermercado()));
+			cotacaoUI.setUser(userMapper.toUIBean(cotacao.getUser()));
 		}
 		
 		return cotacaoUI;
@@ -63,9 +60,9 @@ public class CotacaoMapper {
 			cotacao.setData(cotacaoUI.getData());
 			cotacao.setId(cotacaoUI.getId());
 			cotacao.setPreco(cotacaoUI.getPreco());
-			cotacao.setProduto(cotacaoUI.getProduto().getId());
-			cotacao.setSupermercado(cotacaoUI.getSupermercado().getId());
-			cotacao.setUser(cotacaoUI.getUser().getId());
+			cotacao.setProduto(produtoMapper.toPersistenceBean(cotacaoUI.getProduto()));
+			cotacao.setSupermercado(supermercadoMapper.toPersistenceBean(cotacaoUI.getSupermercado()));
+			cotacao.setUser(userMapper.toPersistenceBean(cotacaoUI.getUser()));
 		}
 		
 		return cotacao;

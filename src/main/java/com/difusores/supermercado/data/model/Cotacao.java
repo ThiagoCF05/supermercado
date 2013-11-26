@@ -3,15 +3,22 @@ package com.difusores.supermercado.data.model;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Cotacao {
 	@Id
 	private String id;
-	private String supermercado;
-	private String produto;
-	private String user;
+	@DBRef
+	@Indexed
+	private Supermercado supermercado;
+	@DBRef
+	@Indexed
+	private Produto produto;
+	@DBRef
+	private User user;
 	
 	private double preco;
 	private Date data;
@@ -22,22 +29,22 @@ public class Cotacao {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getSupermercado() {
+	public Supermercado getSupermercado() {
 		return supermercado;
 	}
-	public void setSupermercado(String supermercado) {
+	public void setSupermercado(Supermercado supermercado) {
 		this.supermercado = supermercado;
 	}
-	public String getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
-	public void setProduto(String produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-	public String getUser() {
+	public User getUser() {
 		return user;
 	}
-	public void setUser(String user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 	public double getPreco() {
