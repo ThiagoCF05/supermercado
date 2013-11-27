@@ -29,5 +29,15 @@ public class CotacaoAPIController {
 		
 		return cotacao;
 	}
+	
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	@ResponseBody
+	public CotacaoUI getCotacao(Model model,
+			@RequestParam(required = true) String id){
+		
+		CotacaoUI cotacao = service.find(id);
+		
+		return cotacao;
+	}
 
 }
