@@ -19,8 +19,14 @@ import com.difusores.supermercado.web.data.SupermercadoUI;
 public class SupermercadoAPIController {
 	@Autowired
 	SupermercadoService service;
-	
-	@RequestMapping(value = "/view", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+	public List<SupermercadoUI> list(Model model){
+        return service.findAll();
+    }
+
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
 	@ResponseBody
 	public List<SupermercadoUI> getSupermercados(@RequestParam(required = false) double latitude,
 			@RequestParam(required = false) double longitude,
