@@ -43,11 +43,11 @@ public class SupermercadoAPIController {
 		return supermercados;
 	}
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    /*@RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public SupermercadoUI create(@RequestBody final SupermercadoUI supermercado){
         SupermercadoUI supermercadoUI = service.create(supermercado);
         return supermercadoUI;
-    }
+    }*/
 
 }
