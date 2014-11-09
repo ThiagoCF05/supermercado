@@ -46,4 +46,22 @@
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean"
 		p:location="/WEB-INF/spring.properties" />
 
+    <!-- Convert JSON -->
+    <bean name="handlerAdapter"
+          class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+                <ref bean="jsonConverter"/>
+
+            </list>
+
+        </property>
+        <property name="requireSession" value="false"/>
+    </bean>
+
+    <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes" value="application/json"/>
+    </bean>
+
 </beans>

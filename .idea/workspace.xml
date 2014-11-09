@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a67f38a6-0e62-4cee-a4b4-9da7b0f62ddc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/data/ProdutoUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/data/ProdutoUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/SupermercadoAPIController.java" afterPath="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/SupermercadoAPIController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/data/SupermercadoUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/data/SupermercadoUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="applicationContext.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="applicationContext.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="601" max-vertical-offset="1095">
-              <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.6993318" vertical-offset="646" max-vertical-offset="1095">
+              <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -49,25 +46,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SupermercadoAPIController.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SupermercadoAPIController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/SupermercadoAPIController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5612472" vertical-offset="393" max-vertical-offset="855">
-              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="855">
+              <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1085#1101#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CotacaoAPIController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/CotacaoAPIController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="600">
-              <caret line="25" column="55" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="55" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -88,9 +75,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/ProdutoAPIController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/data/SupermercadoUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/data/ProdutoUI.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/service/SupermercadoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/SupermercadoAPIController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
       </list>
     </option>
   </component>
@@ -634,26 +621,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="601" max-vertical-offset="1095">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/difusores/supermercado/service/SupermercadoService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1515" max-vertical-offset="3045">
           <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/CotacaoAPIController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="600">
-          <caret line="25" column="55" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -666,14 +637,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/CotacaoAPIController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22077923" vertical-offset="138" max-vertical-offset="600">
+          <caret line="25" column="55" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/difusores/supermercado/web/controller/SupermercadoAPIController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5612472" vertical-offset="393" max-vertical-offset="855">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="855">
+          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1085#1101#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6993318" vertical-offset="646" max-vertical-offset="1095">
+          <caret line="64" column="14" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
