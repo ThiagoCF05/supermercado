@@ -1,5 +1,8 @@
 package com.difusores.supermercado.web.data;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+
+@JsonAutoDetect
 public class SupermercadoUI {
 	private String id;
 	private String cep;
